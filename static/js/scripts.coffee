@@ -15,7 +15,7 @@ TVMaua.apps =
 
   flowPlayer: ->
     containerPlayer = 'flv-player'
-    flashPlayer = 'http://localhost/TVMauaERegiao/static/flv-player/flowplayer-3.2.16.swf'
+    flashPlayer = 'flv-player/flowplayer-3.2.16.swf'
     a = document.querySelectorAll '.clips a'
     nomeAnuncte = document.querySelector '.nome-anunciante'
     descrAnuncte = document.querySelector '.informacoes-anunciante'

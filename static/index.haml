@@ -21,6 +21,19 @@
                 %input{:id => "campo-buscar", :type => "text"}/
                 %input{:type => "button", :value => ""}/
 
+          .menu-categorias
+            .cabecalho-categorias
+              .titulo
+                %p Categoria
+              .seta
+                %p &#9660;
+            .lista-categorias
+              .aba
+              %ul
+                - ["Automóveis", "Decoração", "Imóveis", "Construção", "Móveis", "Moda", "Games", "Outros"].sort.each do |i|
+                  %li
+                    %a{:href => "#"} #{i}
+
       .video
         .player
           %a{:id => "flv-player", :href => "videos/dona-pimenta-final.flv"}

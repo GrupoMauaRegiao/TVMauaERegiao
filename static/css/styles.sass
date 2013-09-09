@@ -19,7 +19,6 @@ body
       height: 70px
       position: fixed
       background: rgb(97, 108, 112)
-      box-shadow: 0 5px 2px $preto
 
       .elementos
         width: 960px
@@ -113,7 +112,8 @@ body
             padding: 7px 0 0 0
 
           .lista-categorias
-            width: 115px
+            width: 120px
+            display: none /* Apagar */
             float: left
             margin: 20px 0 0 0
             background: rgb(127, 137, 139)
@@ -152,29 +152,70 @@ body
                 padding-bottom: 10px
 
     /*! Testing */
-    .video
-      padding: 100px 0 0 0
+    .conteudo
+      width: 960px
+      margin: 0 auto
 
       .player
-        #flv-player
-          width: 960px
-          height: 500px
-          display: block
-          margin: 0 auto
+        width: 760px
+        padding: 100px 0 0 0
+        float: left
 
-      .clips
-        width: 960px
-        margin: 0px auto
-
-        a
-          width: 100px
-          height: 600px
-          background: red
-          border-right: 10px solid $branco
-          outline: none
+        .video
           float: left
 
-      .nome-anunciante,
-      .informacoes-anunciante
-        width: 960px
-        margin: 0 auto
+          #flv-player
+            width: 760px
+            height: 446px
+            margin: 0 auto
+            padding-bottom: 2px
+            border-bottom: 2px solid rgb(61, 61, 61)
+            display: block
+
+        .informacoes-anunciante
+          width: 540px
+          height: 100px
+          margin: 30px 0 10px 0
+          color: rgb(188, 192, 204)
+          float: left
+
+          .nome-anunciante
+            h1
+              font-size: 45px
+
+          .categoria
+            margin: 15px 0 0 0
+
+            p
+              font-size: 30px
+
+        .botao-mais-informacoes
+          margin: 90px 0 0 0
+          float: left
+
+          input
+            width: 220px
+            height: 30px
+            cursor: pointer
+            font: 16px "Gotham", cursive
+            text-transform: uppercase
+            color: $branco
+            background: rgb(1, 125, 195)
+            border: 0
+            outline: 0
+            padding: 5px
+            -webkit-transition: all 0.3s linear
+            -moz-transition: all 0.3s linear
+            -ms-transition: all 0.3s linear
+            -o-transition: all 0.3s linear
+            transition: all 0.3s linear
+
+          input:hover
+            background: rgb(96, 176, 222)
+
+      .publicidade
+        width: 180px
+        height: 570px
+        margin: 100px 0 0 20px
+        background: rgb(77, 77, 77)
+        float: left

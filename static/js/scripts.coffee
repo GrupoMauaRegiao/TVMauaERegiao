@@ -17,19 +17,19 @@ TVMaua.apps =
     containerPlayer = 'flv-player'
     flashPlayer = 'flv-player/flowplayer-3.2.16.swf'
     a = document.querySelectorAll '.clips a'
-    nomeAnuncte = document.querySelector '.nome-anunciante'
-    descrAnuncte = document.querySelector '.informacoes-anunciante'
+    nomeAnuncte = document.querySelector '.informacoes-anunciante .nome-anunciante'
+    catAnuncte = document.querySelector '.informacoes-anunciante .categoria'
     clips = []
-    titulos = []
-    descr = []
+    nomes = []
+    cats = []
 
     _playerDefault = ->
       $f containerPlayer, flashPlayer, {
         playlist: clips
 
         onStart: (clip) ->
-          _exibirDadosAnuncte 'titulo', titulos[clip.index], nomeAnuncte
-          _exibirDadosAnuncte 'descricao', descr[clip.index], descrAnuncte
+          _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
+          _exibirDadosAnuncte 'categoria', cats[clip.index], catAnuncte
           return
 
         onFinish: ->
@@ -38,12 +38,12 @@ TVMaua.apps =
           return
       }
 
-    _exibirDadosAnuncte = (tipo, texto, container) ->
-      if tipo is 'titulo'
+    _exibirDadosAnuncte = (tipo, nome, container) ->
+      if tipo is 'nome'
         tag = 'h1'
-      else if tipo is 'descricao'
+      else if tipo is 'categoria'
         tag = 'p'
-      container.innerHTML = '<' + tag + '>' + texto + '</' + tag + '>'
+      container.innerHTML = '<' + tag + '>' + nome + '</' + tag + '>'
       return
 
     _mudarVideo = (evt) ->
@@ -53,8 +53,8 @@ TVMaua.apps =
       # Player utilizado após clique
       $f(containerPlayer, flashPlayer, {
         onStart: ->
-          _exibirDadosAnuncte 'titulo', titulos[index - 1], nomeAnuncte
-          _exibirDadosAnuncte 'descricao', descr[index - 1], descrAnuncte
+          _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
+          _exibirDadosAnuncte 'categoria', cats[index - 1], catAnuncte
           return
 
         onFinish: ->
@@ -68,8 +68,8 @@ TVMaua.apps =
     for item, i in a by 1
       item.addEventListener 'click', _mudarVideo
       clips[i] = item.getAttribute 'href'
-      titulos[i] = item.getAttribute 'title'
-      descr[i] = item.getAttribute 'data-descricao'
+      nomes[i] = item.getAttribute 'title'
+      cats[i] = item.getAttribute 'data-categoria'
 
     # Player inicial
     do ->

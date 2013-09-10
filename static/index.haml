@@ -4,7 +4,7 @@
     %meta{:charset => "UTF-8"}/
     %meta{:name => "keywords", :content => ""}/
     %meta{:name => "description", :content => ""}/
-    %meta{:name => "autor", :content => ""}/
+    %meta{:name => "author", :content => ""}/
     %link{:rel => "stylesheet", :href => "css/styles.min.css"}/
     %title TV Mauá e Região &#8212; Testing version
   %body
@@ -19,7 +19,7 @@
               %form{:action => "pesquisar.php"}
                 %label{:for => "campo-buscar"} Procurar
                 %input{:id => "campo-buscar", :type => "text"}/
-                %input{:type => "button", :value => ""}/
+                %input{:type => "button", :value => " "}/
 
           .menu-categorias
             .cabecalho-categorias
@@ -48,9 +48,17 @@
 
         .publicidade
 
-        .lista-de-videos
-          .clips
-            %a{:href => "videos/greatway-idiomas.flv", :title => "GreatWay Idiomas", :data => {:categoria => "Formação Profissional"}}
-            %a{:href => "videos/dona-pimenta-final.flv", :title => "Dona Pimenta", :data => {:categoria => "Gastronomia"}}
+      .lista-de-videos
+        .controles
+          %input{:type => "button", :value => " ", :title => "Anterior", :class => "anterior"}
+          %input{:type => "button", :value => " ", :title => "Próximo", :class => "proximo"}
 
-  %script{:src => "js/scripts.js"}
+        .clips
+          %ul
+            %li
+              %a{:href => "videos/greatway-idiomas.flv", :title => "GreatWay Idiomas", :data => {:categoria => "Formação Profissional"}}
+            %li
+              %a{:href => "videos/dona-pimenta-final.flv", :title => "Dona Pimenta", :data => {:categoria => "Gastronomia"}}
+
+    %script{:src => "http://code.jquery.com/jquery-2.0.3.min.js"}
+    %script{:src => "js/scripts.js"}

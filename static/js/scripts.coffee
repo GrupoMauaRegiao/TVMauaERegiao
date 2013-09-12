@@ -29,7 +29,10 @@ TVMaua.apps =
       Apps = TVMaua.apps
 
       _playerDefault = ->
-        $f containerPlayer, flashPlayer, {
+        $f containerPlayer, {
+          src: flashPlayer,
+          wmode: 'transparent'
+        }, {
           playlist: clips
 
           onStart: (clip) ->
@@ -138,6 +141,18 @@ TVMaua.apps =
         return
     return
 
+  animacaoCabecalho: ->
+    cabecalho = document.querySelector '.cabecalho'
+    if cabecalho
+      _animar = ->
+        if @.pageYOffset > 100
+          cabecalho.style.opacity = 0.9
+        else if @.pageYOffset <= 100
+          cabecalho.style.opacity = 1
+        return
+      window.addEventListener 'scroll', _animar
+    return
+
 Apps = TVMaua.apps
 do ->
   Apps.carregarScripts()
@@ -145,5 +160,7 @@ do ->
 
 window.onload = ->
   Apps.flowPlayer()
+  Apps.animacaoCabecalho()
   Apps.carousel()
+  Apps.controlarTamanhoString '.clips ul li a p', 16
   return

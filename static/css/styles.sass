@@ -18,7 +18,13 @@ body
       width: 100%
       height: 70px
       position: fixed
+      z-index: 9999
       background: rgb(97, 108, 112)
+      -webkit-transition: all 1s linear
+      -moz-transition: all 1s linear
+      -ms-transition: all 1s linear
+      -o-transition: all 1s linear
+      transition: all 1s linear
 
       .elementos
         width: 960px
@@ -26,8 +32,8 @@ body
 
         .logotipo
           width: 200px
-          height: 110px
-          background: rgb(97, 108, 112) url('../imagens/logotipo.png') no-repeat 0 18px
+          height: 70px
+          background: url('../imagens/logotipo.png') no-repeat 0 5px
           float: left
 
         .busca
@@ -40,7 +46,6 @@ body
             form
               label
                 font-size: 14px
-                font-weight: bold
                 text-transform: uppercase
                 color: $branco
                 margin: 0 20px 0 0
@@ -151,7 +156,6 @@ body
                 border: none
                 padding-bottom: 10px
 
-    /*! Testing */
     .conteudo
       width: 960px
       margin: 0 auto
@@ -169,22 +173,23 @@ body
             height: 446px
             margin: 0 auto
             padding-bottom: 2px
-            border-bottom: 2px solid rgb(61, 61, 61)
+            border-bottom: 1px solid rgb(61, 61, 61)
             display: block
 
         .informacoes-anunciante
           width: 540px
           height: 100px
-          margin: 30px 0 10px 0
+          margin: 35px 0 10px 0
           color: rgb(188, 192, 204)
           float: left
 
           .nome-anunciante
             h1
               font-size: 45px
+              line-height: 40px
 
           .categoria
-            margin: 15px 0 0 0
+            margin: 20px 0 0 0
 
             p
               font-size: 30px
@@ -230,7 +235,7 @@ body
           width: 50px
           height: 190px
           margin: 20px 15px
-          z-index: 9999
+          z-index: 9998
           font-size: 50px
           color: white
           position: absolute
@@ -249,19 +254,136 @@ body
 
       .clips
         width: 100% !important
+        height: 240px !important
         margin: 0 auto
         background: rgb(26, 26, 26)
         padding: 20px 0
 
         ul
           li
+            width: 220px
             display: inline-block
             margin: 0 10px
-            background: rgb(128, 128, 128)
+            border-bottom: 2px solid rgb(77, 77, 77)
+            -webkit-transition: all 0.3s linear
+            -moz-transition: all 0.3s linear
+            -ms-transition: all 0.3s linear
+            -o-transition: all 0.3s linear
+            transition: all 0.3s linear
 
             a
-              width: 230px
-              height: 190px
-              display: block
-              border: 0
-              outline: 0
+              color: rgb(127, 127, 127)
+              font-size: 18px
+              text-decoration: none
+              -webkit-transition: all 0.3s linear
+              -moz-transition: all 0.3s linear
+              -ms-transition: all 0.3s linear
+              -o-transition: all 0.3s linear
+              transition: all 0.3s linear
+
+              img
+                width: 220px
+                height: 180px
+                display: block
+                border: 0
+                outline: 0
+
+              p
+                padding: 15px
+
+            a:hover
+              color: rgb(200, 200, 200)
+
+          li:hover
+            border-bottom: 2px solid rgb(245, 134, 52)
+
+    .box
+      width: 100%
+      height: 200px
+      float: left
+
+      .elementos
+        width: 960px
+        margin: 0 auto
+
+        p
+          color: $branco
+
+    .sombra
+      width: 100%
+      height: 25px
+      margin: 0 auto
+      background: url('../imagens/sombra-rodape.jpg') no-repeat 50%
+      float: left
+
+    .rodape
+      width: 100%
+      height: 85px
+      padding: 10px 0 0 0
+      background: rgb(41, 51, 53)
+      box-shadow: inset 0 20px 25px $preto
+      float: left
+
+      .elementos
+        width: 1100px
+        padding: 10px
+        margin: 0 auto
+
+        .copyright
+          height: 65px
+          font-size: 14px
+          line-height: 65px
+          margin: 0 35px  0 0
+          color: $branco
+          float: left
+
+          span
+            text-transform: uppercase
+
+        .redes-sociais
+          float: left
+
+          .icone
+            width: 42px
+            height: 43px
+            margin: 10px
+            float: left
+
+          .facebook
+            background: url('../imagens/logotipo-facebook.png') no-repeat
+
+          .youtube
+            background: url('../imagens/logotipo-youtube.png') no-repeat
+
+        .links
+          margin: 0 30px 0 30px
+          float: left
+
+          ul
+            li
+              display: inline-block
+              padding: 0 10px
+
+              a
+                font-size: 14px
+                color: $branco
+                text-transform: uppercase
+                text-decoration: none
+                line-height: 65px
+                -webkit-transition: all 0.3s linear
+                -moz-transition: all 0.3s linear
+                -ms-transition: all 0.3s linear
+                -o-transition: all 0.3s linear
+                transition: all 0.3s linear
+                border: 0
+                outline: 0
+
+              a:hover
+                color: rgb(245, 134, 52)
+
+        .logotipo
+          width: 60px
+          height: 60px
+          background: url('../imagens/logotipo-grupo-maua-e-regiao.png') no-repeat
+          background-size: 60px
+          float: left

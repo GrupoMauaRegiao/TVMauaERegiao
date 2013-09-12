@@ -2,6 +2,7 @@ TVMaua = TVMaua or {}
 TVMaua.apps =
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
+
     _carregar = (url) ->
       script = document.createElement 'script'
       script.async = true
@@ -93,6 +94,7 @@ TVMaua.apps =
 
   controlarTamanhoString: (seletor, maxCaract) ->
     tag = document.querySelectorAll seletor
+
     if tag[0]
       if tag[0].textContent
         for item in tag by 1
@@ -143,6 +145,7 @@ TVMaua.apps =
 
   animacaoCabecalho: ->
     cabecalho = document.querySelector '.cabecalho'
+
     if cabecalho
       _animar = ->
         if @.pageYOffset > 100

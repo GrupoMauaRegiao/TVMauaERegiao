@@ -37,7 +37,7 @@ body
           float: left
 
         .busca
-          width: 575px
+          width: 565px
           text-align: center
           padding: 20px
           float: left
@@ -96,6 +96,7 @@ body
                 -o-transition: all 0.3s linear
                 transition: all 0.3s linear
                 text-transform: uppercase
+                cursor: pointer
             
             .titulo:hover
               p
@@ -117,44 +118,53 @@ body
             padding: 7px 0 0 0
 
           .lista-categorias
-            width: 120px
-            display: none /* Apagar */
+            width: 125px
             float: left
-            margin: 20px 0 0 0
+            margin: 10px 0 0 0
             background: rgb(127, 137, 139)
             border-left: 2px solid rgb(248, 180, 131)
+            -webkit-transition: all 0.5s linear
+            -moz-transition: all 0.5s linear
+            -ms-transition: all 0.5s linear
+            -o-transition: all 0.5s linear
+            transition: all 0.5s linear
+            box-shadow: 0 3px 5px $preto
+            display: none
 
             ul
-              li
-                padding: 10px 5px
-                border-bottom: 1px dotted rgb(97, 108, 112)
+              padding: 8px 0 0 0
 
-                a
-                  border: 0
-                  outline: 0
-                  cursor: pointer
-                  text-transform: uppercase
-                  font-size: 14px
-                  color: $branco
-                  text-decoration: none
+              a
+                outline: 0
+                cursor: pointer
+                text-transform: uppercase
+                font-size: 14px
+                color: $branco
+                text-decoration: none
+                -webkit-transition: all 0.1s linear
+                -moz-transition: all 0.1s linear
+                -ms-transition: all 0.1s linear
+                -o-transition: all 0.1s linear
+                transition: all 0.1s linear
+
+                li
+                  padding: 15px 5px 9px 5px
                   -webkit-transition: all 0.3s linear
                   -moz-transition: all 0.3s linear
                   -ms-transition: all 0.3s linear
                   -o-transition: all 0.3s linear
                   transition: all 0.3s linear
+                  border-bottom: 1px dotted rgb(97, 108, 112)
 
-                a:hover
-                  color: rgb(248, 180, 131)
+                li:hover
+                  cursor: pointer
+                  background: rgb(118, 125, 126)
 
-                a:active
-                  color: rgb(164, 209, 228)
-              
-              li:first-child
-                padding-top: 20px
+              a:hover
+                color: rgb(248, 180, 131)
 
-              li:last-child
-                border: none
-                padding-bottom: 10px
+              a:active
+                color: rgb(164, 209, 228)
 
     .conteudo
       width: 960px

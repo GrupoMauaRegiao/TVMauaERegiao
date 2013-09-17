@@ -1,5 +1,8 @@
 TVMaua = TVMaua or {}
 TVMaua.apps =
+  path: ->
+    'http://localhost/TVMauaERegiao/wordpress/wp-content/themes/tv-maua-e-regiao/'
+    
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
 
@@ -11,15 +14,15 @@ TVMaua.apps =
       return
 
     # Scripts
-    _carregar 'js/libs/flowplayer-3.2.12.min.js'
-    _carregar 'js/libs/jquery.carouFredSel-6.2.1-packed.js'
+    _carregar TVMaua.apps.path() + 'js/libs/flowplayer-3.2.12.min.js'
+    _carregar TVMaua.apps.path() + 'js/libs/jquery.carouFredSel-6.2.1-packed.js'
     return
 
   flowPlayer: ->
     containerPlayer = 'flv-player'
 
     if containerPlayer
-      flashPlayer = 'flv-player/flowplayer-3.2.16.swf'
+      flashPlayer = TVMaua.apps.path() + 'flv-player/flowplayer-3.2.16.swf'
       a = document.querySelectorAll '.clips ul li a'
       nomeAnuncte = document.querySelector '.informacoes-anunciante .nome-anunciante'
       catAnuncte = document.querySelector '.informacoes-anunciante .categoria'

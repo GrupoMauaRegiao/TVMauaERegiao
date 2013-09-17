@@ -1,3 +1,5 @@
+      <?php get_header(); ?>
+
       <div class='conteudo'>
         <div class='player'>
           <div class='video'>
@@ -83,3 +85,5 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, consectetur alias soluta assumenda molestiae facilis at iusto aut harum porro saepe architecto quidem omnis accusantium eius neque dolores illo adipisci! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, pariatur voluptatibus blanditiis dicta mollitia nesciunt vero modi cupiditate consectetur dignissimos ea nemo consequatur ad animi natus deleniti corrupti quo explicabo!</p>
         </div>
       </div>
+
+      <?php get_footer(); ?>

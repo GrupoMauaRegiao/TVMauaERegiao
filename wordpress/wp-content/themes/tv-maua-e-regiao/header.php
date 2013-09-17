@@ -1,3 +1,11 @@
+<?php
+function categorias_sem_title() {
+  $categories = wp_list_categories('hide_empty=0&echo=0&orderby=name&title_li');
+  $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
+  return $categories;
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,25 +13,17 @@
     <meta content='tv maua, maua, sp, maua e regiao, gerupo maua e regiao, empresas de mauá, ribeirão pires, revista maua, jornal maua, comprar em maua, comprar em rio grande da serra, comprar em ribeirão pires' name='keywords'>
     <meta content='Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe.' name='description'>
     <meta content='Grupo Mauá e Região de Comunicação' name='author'>
-    <link href='css/styles.min.css' rel='stylesheet'>
+    <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>
     <title><?php bloginfo('name'); ?><?php if (!is_home()): ?> | <?php the_title() ?><?php endif ?></title>
   </head>
   <body>
     <div class='layout'>
       <div class='cabecalho'>
         <div class='elementos'>
-          <a href='#' title='TV Mauá e Região'>
+          <a href='<?php bloginfo('url'); ?>' title='TV Mauá e Região'>
             <div class='logotipo'></div>
           </a>
-          <div class='busca'>
-            <div class='formulario'>
-              <form action='pesquisar.php'>
-                <label for='campo-buscar'>Procurar</label>
-                <input id='campo-buscar' type='text'>
-                <input type='button' value=' '>
-              </form>
-            </div>
-          </div>
+          <?php get_search_form(); ?>
           <div class='menu-categorias'>
             <div class='cabecalho-categorias'>
               <div class='titulo'>
@@ -36,30 +36,7 @@
             <div class='lista-categorias'>
               <div class='aba'></div>
               <ul>
-                <a href='#'>
-                  <li>Automóveis</li>
-                </a>
-                <a href='#'>
-                  <li>Construção</li>
-                </a>
-                <a href='#'>
-                  <li>Decoração</li>
-                </a>
-                <a href='#'>
-                  <li>Games</li>
-                </a>
-                <a href='#'>
-                  <li>Imóveis</li>
-                </a>
-                <a href='#'>
-                  <li>Moda</li>
-                </a>
-                <a href='#'>
-                  <li>Móveis</li>
-                </a>
-                <a href='#'>
-                  <li>Outros</li>
-                </a>
+                <?php echo categorias_sem_title(); ?>
               </ul>
             </div>
           </div>

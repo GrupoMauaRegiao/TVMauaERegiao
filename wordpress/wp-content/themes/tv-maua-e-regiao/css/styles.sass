@@ -1,0 +1,400 @@
+@import reset.sass
+
+@font-face
+  font-family: Gotham
+  font-weight: normal
+  src: url('../fonts/gothamrnd-light.otf') format("opentype")
+
+
+$branco: rgb(255, 255, 255)
+$preto: rgb(0, 0, 0)
+
+body
+  font-family: Gotham, cursive
+  background: $preto
+
+  .layout
+    .cabecalho
+      width: 100%
+      height: 70px
+      position: fixed
+      z-index: 9999
+      background: rgb(97, 108, 112)
+      -webkit-transition: all 1s linear
+      -moz-transition: all 1s linear
+      -ms-transition: all 1s linear
+      -o-transition: all 1s linear
+      transition: all 1s linear
+
+      .elementos
+        width: 960px
+        margin: 0 auto
+
+        .logotipo
+          width: 200px
+          height: 70px
+          background: url('../imagens/logotipo.png') no-repeat 0 5px
+          float: left
+
+        .busca
+          width: 565px
+          text-align: center
+          padding: 20px
+          float: left
+
+          .formulario
+            form
+              label
+                font-size: 14px
+                text-transform: uppercase
+                color: $branco
+                margin: 0 20px 0 0
+
+              input[type="text"]
+                width: 330px
+                height: 20px
+                font-family: Gotham, cursive
+                border: 0
+                border-radius: 20px
+                padding: 5px
+                background: rgb(127, 137, 139)
+                -webkit-transition: all 0.2s linear
+                -moz-transition: all 0.2s linear
+                -ms-transition: all 0.2s linear
+                -o-transition: all 0.2s linear
+                transition: all 0.2s linear
+
+              input[type="text"]:focus
+                box-shadow: inset 0px 0px 1px $preto
+                color: rgb(248, 180, 131)
+
+              input[type="button"]
+                width: 16px
+                height: 16px
+                position: absolute
+                margin: 5px 0 0 -25px
+                cursor: pointer
+                background: url('../imagens/lupa.png') no-repeat
+                border: 0
+                outline: 0
+
+        .menu-categorias
+          float: left
+          margin: 27px 0 0 15px
+
+          .cabecalho-categorias
+            color: $branco
+            cursor: pointer
+
+            .titulo
+              float: left
+
+              p
+                -webkit-transition: all 0.3s linear
+                -moz-transition: all 0.3s linear
+                -ms-transition: all 0.3s linear
+                -o-transition: all 0.3s linear
+                transition: all 0.3s linear
+                text-transform: uppercase
+                cursor: pointer
+            
+            .titulo:hover
+              p
+                color: rgb(127, 137, 139)
+
+            .seta
+              padding: 2px 10px
+              float: left
+
+              p
+                font-size: 10px
+
+          .aba
+            width: 0
+            height: 0
+            border: 15px solid
+            border-color: transparent transparent rgb(127, 137, 139) transparent
+            margin: -37px 0 -8px 42px
+            padding: 7px 0 0 0
+
+          .lista-categorias
+            width: 125px
+            float: left
+            margin: 10px 0 0 0
+            background: rgb(127, 137, 139)
+            border-left: 2px solid rgb(248, 180, 131)
+            -webkit-transition: all 0.5s linear
+            -moz-transition: all 0.5s linear
+            -ms-transition: all 0.5s linear
+            -o-transition: all 0.5s linear
+            transition: all 0.5s linear
+            box-shadow: 0 3px 5px $preto
+            display: none
+
+            ul
+              padding: 8px 0 0 0
+
+              a
+                outline: 0
+                cursor: pointer
+                text-transform: uppercase
+                font-size: 14px
+                color: $branco
+                text-decoration: none
+                -webkit-transition: all 0.1s linear
+                -moz-transition: all 0.1s linear
+                -ms-transition: all 0.1s linear
+                -o-transition: all 0.1s linear
+                transition: all 0.1s linear
+
+                li
+                  padding: 15px 5px 9px 5px
+                  -webkit-transition: all 0.3s linear
+                  -moz-transition: all 0.3s linear
+                  -ms-transition: all 0.3s linear
+                  -o-transition: all 0.3s linear
+                  transition: all 0.3s linear
+                  border-bottom: 1px dotted rgb(97, 108, 112)
+
+                li:hover
+                  cursor: pointer
+                  background: rgb(118, 125, 126)
+
+              a:hover
+                color: rgb(248, 180, 131)
+
+              a:active
+                color: rgb(164, 209, 228)
+
+    .conteudo
+      width: 960px
+      margin: 0 auto
+
+      .player
+        width: 760px
+        padding: 100px 0 0 0
+        float: left
+
+        .video
+          float: left
+
+          #flv-player
+            width: 760px
+            height: 446px
+            margin: 0 auto
+            padding-bottom: 2px
+            border-bottom: 1px solid rgb(61, 61, 61)
+            display: block
+
+      .informacoes-anunciante
+        width: 740px
+        height: 100px
+        margin: 35px 0 10px 0
+        color: rgb(188, 192, 204)
+        float: left
+
+        .nome-anunciante
+          h1
+            font-size: 45px
+            line-height: 40px
+
+        .categoria
+          margin: 20px 0 0 0
+
+          p
+            font-size: 30px
+
+      .botao-mais-informacoes
+        width: 220px
+        margin: 90px 0 0 0
+        float: left
+
+        input
+          width: 220px
+          height: 30px
+          cursor: pointer
+          font: 16px "Gotham", cursive
+          text-transform: uppercase
+          color: $branco
+          background: rgb(1, 125, 195)
+          border: 0
+          outline: 0
+          padding: 5px
+          -webkit-transition: all 0.3s linear
+          -moz-transition: all 0.3s linear
+          -ms-transition: all 0.3s linear
+          -o-transition: all 0.3s linear
+          transition: all 0.3s linear
+
+        input:hover
+          background: rgb(96, 176, 222)
+
+      .publicidade
+        width: 180px
+        height: 450px
+        margin: 100px 0 0 20px
+        background: rgb(77, 77, 77)
+        float: left
+
+    .lista-de-videos
+      width: 100%
+      margin: 0 0 20px 0
+      float: left
+
+      .controles
+        input
+          width: 50px
+          height: 190px
+          margin: 20px 15px
+          z-index: 9998
+          font-size: 50px
+          color: white
+          position: absolute
+          background: transparent
+          cursor: pointer
+          border: 0
+          outline: 0
+
+        .anterior
+          background: url('../imagens/seta-anterior.png') no-repeat 50%
+          left: 0
+
+        .proximo
+          background: url('../imagens/seta-proximo.png') no-repeat 50%
+          right: 0
+
+      .clips
+        width: 100% !important
+        height: 240px !important
+        margin: 0 auto
+        background: rgb(26, 26, 26)
+        padding: 20px 0
+
+        ul
+          li
+            width: 220px
+            display: inline-block
+            margin: 0 10px
+            border-bottom: 2px solid rgb(77, 77, 77)
+            -webkit-transition: all 0.3s linear
+            -moz-transition: all 0.3s linear
+            -ms-transition: all 0.3s linear
+            -o-transition: all 0.3s linear
+            transition: all 0.3s linear
+
+            a
+              color: rgb(127, 127, 127)
+              font-size: 18px
+              text-decoration: none
+              -webkit-transition: all 0.3s linear
+              -moz-transition: all 0.3s linear
+              -ms-transition: all 0.3s linear
+              -o-transition: all 0.3s linear
+              transition: all 0.3s linear
+
+              img
+                width: 220px
+                height: 180px
+                display: block
+                border: 0
+                outline: 0
+
+              p
+                padding: 15px
+
+            a:hover
+              color: rgb(200, 200, 200)
+
+          li:hover
+            border-bottom: 2px solid rgb(245, 134, 52)
+
+    .box
+      width: 100%
+      height: 200px
+      float: left
+
+      .elementos
+        width: 960px
+        margin: 0 auto
+
+        p
+          color: $branco
+
+    .sombra
+      width: 100%
+      height: 25px
+      margin: 0 auto
+      background: url('../imagens/sombra-rodape.jpg') no-repeat 50%
+      float: left
+
+    .rodape
+      width: 100%
+      height: 85px
+      padding: 10px 0 0 0
+      background: rgb(41, 51, 53) url('../imagens/bg-rodape.jpg') repeat-x
+      // box-shadow: inset 0 20px 25px $preto
+      float: left
+
+      .elementos
+        width: 960px
+        padding: 10px
+        margin: 0 auto
+
+        .copyright
+          height: 65px
+          font-size: 12px
+          line-height: 65px
+          margin: 0 12px  0 0
+          color: $branco
+          float: left
+
+          span
+            text-transform: uppercase
+
+        .redes-sociais
+          float: left
+
+          .icone
+            width: 42px
+            height: 43px
+            margin: 10px
+            float: left
+
+          .facebook
+            background: url('../imagens/logotipo-facebook.png') no-repeat
+
+          .youtube
+            background: url('../imagens/logotipo-youtube.png') no-repeat
+
+        .links
+          margin: 0 15px 0 0
+          float: left
+
+          ul
+            li
+              display: inline-block
+              padding: 0 10px
+
+              a
+                font-size: 14px
+                color: $branco
+                text-transform: uppercase
+                text-decoration: none
+                line-height: 65px
+                -webkit-transition: all 0.3s linear
+                -moz-transition: all 0.3s linear
+                -ms-transition: all 0.3s linear
+                -o-transition: all 0.3s linear
+                transition: all 0.3s linear
+                border: 0
+                outline: 0
+
+              a:hover
+                color: rgb(245, 134, 52)
+
+        .logotipo
+          width: 60px
+          height: 60px
+          background: url('../imagens/logotipo-grupo-maua-e-regiao.png') no-repeat
+          background-size: 60px
+          float: left

@@ -66,7 +66,10 @@ TVMaua.apps =
         index = clips.indexOf(@.getAttribute 'href') + 1
 
         # Player utilizado após clique
-        $f(containerPlayer, flashPlayer, {
+        $f(containerPlayer, {
+          src: flashPlayer, 
+          wmode: 'transparent'
+        }, {
           onStart: ->
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[index - 1], catAnuncte

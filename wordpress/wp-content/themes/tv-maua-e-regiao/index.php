@@ -6,7 +6,16 @@
             <a href='http://localhost/TVMauaERegiao/wordpress/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>
           </div>
         </div>
-        <div class='publicidade'></div>
+        <div class='publicidade'>
+          <?php query_posts('order=ASC&posts_per_page=1&tag=publicidade-home'); ?>
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <a href='<?php echo get_post_meta($post->ID, 'Link Publicidade 180 x 450', true); ?>' target='_blank'>
+              <img src="<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, 'Publicidade 180 x 450', true); ?>&amp;w=180&amp;450" alt="">
+            </a>
+          <?php endwhile; else: ?>
+            <img src='<?php bloginfo("template_url"); ?>/imagens/sem-publicidade.jpg' alt=''>
+          <?php endif; ?>
+        </div>
         <div class='informacoes-anunciante'>
           <div class='nome-anunciante'></div>
           <div class='categoria'></div>
@@ -22,11 +31,13 @@
         </div>
         <div class='clips'>
           <ul>
-            <?php query_posts('order=ASC&posts_per_page=20&tag=videos'); ?>
+            <?php query_posts("order=ASC&posts_per_page=20&tag=videos"); ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               <li>
-                <a data-categoria='<?php echo get_the_category()[0]->cat_name; ?>' href='<?php echo get_post_meta($post->ID, 'VÍDEO', true); ?>' title='<?php the_title(); ?>'>
-                  <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, 'Miniatura VÍDEO', true); ?>&amp;w=220&amp;h=180'>
+                <a data-categoria='<?php echo get_the_category()[0]->cat_name; ?>'
+                   href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
+                   title='<?php the_title(); ?>'>
+                  <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=180'>
                   <p><?php the_title(); ?></p>
                 </a>
               </li>

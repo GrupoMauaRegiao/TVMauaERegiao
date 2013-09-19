@@ -42,8 +42,6 @@ TVMaua.apps =
           onStart: (clip) ->
             _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[clip.index], catAnuncte
-            Apps.controlarTamanhoString '.nome-anunciante h1', 20
-            Apps.controlarTamanhoString '.categoria p', 30
             carousel.trigger 'slideTo', clip.index
             return
 
@@ -67,14 +65,12 @@ TVMaua.apps =
 
         # Player utilizado após clique
         $f(containerPlayer, {
-          src: flashPlayer, 
+          src: flashPlayer,
           wmode: 'transparent'
         }, {
           onStart: ->
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[index - 1], catAnuncte
-            Apps.controlarTamanhoString '.nome-anunciante h1', 20
-            Apps.controlarTamanhoString '.categoria p', 30
             carousel.trigger 'slideTo', index - 1
             return
 

@@ -1,7 +1,9 @@
 <?php
 function categorias_sem_title() {
-  $categories = wp_list_categories('hide_empty=0&echo=0&orderby=name&title_li');
+  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li');
   $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
+  $categories = str_replace("(", "<i>", $categories);
+  $categories = str_replace(")", "</i>  ", $categories);
   return $categories;
 }
 ?>

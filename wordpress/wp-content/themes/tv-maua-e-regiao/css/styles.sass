@@ -114,7 +114,7 @@ body
             height: 0
             border: 15px solid
             border-color: transparent transparent rgb(127, 137, 139) transparent
-            margin: -37px 0 -8px 42px
+            margin: -37px 0 -8px 60px
             padding: 7px 0 0 0
 
           .lista-categorias
@@ -163,9 +163,25 @@ body
                 a:active
                   color: rgb(164, 209, 228)
 
+                i
+                  color: $branco
+                  opacity: 0.2
+                  background: rgb(245, 134, 52)
+                  padding: 2px 5px 0 4px
+                  border-radius: 5px
+                  font-size: 12px
+                  -webkit-transition: all 0.3s linear
+                  -moz-transition: all 0.3s linear
+                  -ms-transition: all 0.3s linear
+                  -o-transition: all 0.3s linear
+                  transition: all 0.3s linear
+
               li:hover
                 cursor: pointer
                 background: rgb(118, 125, 126)
+
+                i
+                  opacity: 1
 
     .conteudo
       width: 960px

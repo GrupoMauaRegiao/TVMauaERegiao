@@ -4,6 +4,7 @@
         <div class='player'>
           <div class='video'>
             <a href='http://localhost/TVMauaERegiao/wordpress/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>
+            <!-- <a href='http://marcker.net/tv-wp/wp-content/uploads/2013/09/play.flv' id='flv-player'></a> -->
           </div>
         </div>
         <div class='publicidade'>
@@ -34,9 +35,8 @@
             <?php query_posts("order=ASC&posts_per_page=20&tag=videos"); ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               <li>
-                <a data-categoria='<?php echo get_the_category()[0]->cat_name; ?>'
-                   href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
-                   title='<?php the_title(); ?>'>
+                <?php $categoria = get_the_category(); ?>
+                <a data-categoria='<?php echo $categoria[0]->cat_name; ?>' href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>' title='<?php the_title(); ?>'>
                   <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=180'>
                   <p><?php the_title(); ?></p>
                 </a>

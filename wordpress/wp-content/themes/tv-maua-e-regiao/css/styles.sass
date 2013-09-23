@@ -185,11 +185,22 @@ body
 
     .conteudo
       width: 960px
+      padding: 100px 0 0 0
       margin: 0 auto
+
+      .nome-categoria
+        width: 960px
+        border-bottom: 1px solid rgb(97, 181, 228)
+        margin: 0 0 20px 0
+
+        h2
+          font-size: 30px
+          text-transform: uppercase
+          color: rgb(97, 181, 228)
+          padding: 0 0 10px 0
 
       .player
         width: 760px
-        padding: 100px 0 0 0
         float: left
 
         .video
@@ -202,6 +213,13 @@ body
             padding-bottom: 2px
             border-bottom: 1px solid rgb(61, 61, 61)
             display: block
+
+      .individual
+        width: 960px
+
+        .video
+          #flv-player
+            width: 960px
 
       .informacoes-anunciante
         width: 740px
@@ -249,7 +267,7 @@ body
       .publicidade
         width: 180px
         height: 450px
-        margin: 100px 0 0 20px
+        margin: 0 0 0 20px
         background: rgb(77, 77, 77)
         float: left
 
@@ -324,6 +342,46 @@ body
 
           li:hover
             border-bottom: 2px solid rgb(245, 134, 52)
+
+      .cabecalho-lista-de-videos
+        border-bottom: 1px solid rgb(120, 120, 120)
+        margin: 15px 0 30px 0
+
+        h2
+          font-size: 30px
+          padding: 0 0 5px 0
+          text-transform: uppercase
+          color: rgb(120, 120, 120)
+
+      .clips-categoria
+        width: (100% - 5%) !important
+        height: auto !important
+        background: transparent
+        padding: 0 20px
+
+
+        ul
+          width: 100% !important
+          height: auto !important
+          position: static !important
+
+          li
+            width: 200px
+            height: 160px
+            border: 1px solid rgb(70, 70, 70)
+            margin: 0 15px 20px 0
+
+            a
+              img
+                width: auto
+                height: auto
+
+          li:hover
+            border: 1px solid rgb(0, 142, 255)
+
+      .cabecalho-lista-de-videos + .caroufredsel_wrapper
+        position: static !important
+        height: auto !important
 
     .box
       width: 100%

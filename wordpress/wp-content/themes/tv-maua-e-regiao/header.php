@@ -1,13 +1,12 @@
 <?php
 function categorias_sem_title() {
-  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li');
+  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=6');
   $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
   $categories = str_replace("(", "<i>", $categories);
   $categories = str_replace(")", "</i>  ", $categories);
   return $categories;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,7 +15,7 @@ function categorias_sem_title() {
     <meta content='Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe.' name='description'>
     <meta content='Grupo Mauá e Região de Comunicação' name='author'>
     <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>
-    <title><?php bloginfo('name'); ?><?php if (!is_home()): ?> | <?php the_title() ?><?php endif ?></title>
+    <title><?php bloginfo('name'); ?><?php if (!is_home()): ?> | <?php the_title(); ?><?php endif ?></title>
   </head>
   <body>
     <div class='layout'>

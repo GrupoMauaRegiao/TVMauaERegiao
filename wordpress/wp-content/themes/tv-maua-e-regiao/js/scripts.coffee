@@ -1,8 +1,8 @@
 TVMaua = TVMaua or {}
 TVMaua.apps =
   path: ->
-    'http://localhost/TVMauaERegiao/wordpress/wp-content/themes/tv-maua-e-regiao/'
-    # 'http://marcker.net/tv-wp/wp-content/themes/tv-maua-e-regiao/'
+    # 'http://localhost/TVMauaERegiao/wordpress/wp-content/themes/tv-maua-e-regiao/'
+    'http://marcker.net/tv-wp/wp-content/themes/tv-maua-e-regiao/'
     
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
@@ -20,7 +20,7 @@ TVMaua.apps =
     return
 
   flowPlayer: ->
-    containerPlayer = 'flv-player'
+    containerPlayer = document.querySelector '#flv-player'
 
     if containerPlayer
       flashPlayer = TVMaua.apps.path() + 'flv-player/flowplayer-3.2.16.swf'
@@ -181,13 +181,18 @@ TVMaua.apps =
     cabecalho = document.querySelector '.cabecalho'
 
     if cabecalho
+      _opacidadeOn = ->
+        @.style.opacity = 1
+        return
+
       _animar = ->
         if @.pageYOffset > 100
-          cabecalho.style.opacity = 0.9
+          cabecalho.style.opacity = 0.7
         else if @.pageYOffset <= 100
           cabecalho.style.opacity = 1
         return
       window.addEventListener 'scroll', _animar
+      cabecalho.addEventListener 'mouseover', _opacidadeOn
     return
 
 Apps = TVMaua.apps

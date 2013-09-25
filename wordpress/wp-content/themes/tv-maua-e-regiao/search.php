@@ -1,48 +1,60 @@
-<?php
-get_header(); ?>
+<?php get_header(); ?>
+  <?php // Obter somente posts com a tag 'video' no resultado. ?>
+  <?php
+    if (!$wp_query){
+      global $wp_query;
+    }
+    $args = array( 'tag' => 'videos' );
+    $args = array_merge( $args , $wp_query->query );
+    query_posts( $args );
+  ?>
 
-        <section id="primary">
-            <div id="content" role="main">
-
-            <?php if ( have_posts() ) : ?>
-
-                <header class="page-header">
-                    <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyeleven' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-                </header>
-
-                <?php twentyeleven_content_nav( 'nav-above' ); ?>
-
-                <?php /* Start the Loop */ ?>
-                <?php while ( have_posts() ) : the_post(); ?>
-
-                    <?php
-                        /* Include the Post-Format-specific template for the content.
-                         * If you want to overload this in a child theme then include a file
-                         * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                         */
-                        get_template_part( 'content', get_post_format() );
-                    ?>
-
-                <?php endwhile; ?>
-
-                <?php twentyeleven_content_nav( 'nav-below' ); ?>
-
-            <?php else : ?>
-
-                <article id="post-0" class="post no-results not-found">
-                    <header class="entry-header">
-                        <h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-                    </header><!-- .entry-header -->
-
-                    <div class="entry-content">
-                        <p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'twentyeleven' ); ?></p>
-                        <?php get_search_form(); ?>
-                    </div><!-- .entry-content -->
-                </article><!-- #post-0 -->
-
-            <?php endif; ?>
-
-            </div><!-- #content -->
-        </section><!-- #primary -->
-
+  <?php if ( have_posts() ) : ?>
+  <div class='conteudo'>
+    <div class="icone-lupa"></div>
+    <div class="mensagem-busca">
+      <h2>Resultados para <i><?php echo get_search_query(); ?></i></h2>
+    </div>
+    <div class="box">
+      <div class="elementos">
+        <?php while ( have_posts() ) : the_post(); ?>
+          <div class="item-busca">
+            <p><?php the_title(); ?></p>
+          </div>
+        <?php endwhile; else : ?>
+          <div class='conteudo'>
+            <div class="icone-lupa"></div>
+            <div class="mensagem-busca">
+              <h2>Busca por <i><?php echo get_search_query(); ?></i></h2>
+            </div>
+            <div class="box">
+              <div class="elementos">
+                <div class="busca-por-videos">
+                  <p>Infelizmente sua busca por <i><?php echo get_search_query(); ?></i> não obteve resultados.
+                  <br />
+                  Por favor, procure com outros termos ou assista as sugestões:</p>
+                </div>
+                <div class="sugestoes">
+                  <?php query_posts("orderby=rand&posts_per_page=5&tag=videos"); ?>
+                  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                    <?php $category = get_the_category(); ?>
+                      <a href="<?php bloginfo('url'); ?>/categorias/<?php echo $category[0]->slug . "?s=name=" . $post->ID; ?>">
+                        <div class="sugestao">
+                          <div class="imagem">
+                            <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=120&amp;h=100' />
+                          </div>
+                          <div class="categoria">
+                            <span>
+                              <?php the_title(); ?> &raquo; <i><?php echo $category[0]->cat_name; ?></i>
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                  <?php endwhile; else: ?>
+                  <?php endif; ?>
+                </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
 <?php get_footer(); ?>

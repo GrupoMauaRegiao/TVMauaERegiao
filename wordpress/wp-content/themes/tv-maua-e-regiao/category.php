@@ -22,16 +22,10 @@
 <div class='lista-de-videos'>
   <div class='clips clips-categoria'>
     <div class="cabecalho-lista-de-videos">
-      <?php
-      if ($query) {
-        $query = get_search_query();
-      } else {
-        $query = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug;
-      }
-      ?>
       <h2>Anunciantes <?php echo $query; ?></h2>
     </div>
     <ul>
+      <?php $query = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug; ?>
       <?php query_posts($query); ?>
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <li>

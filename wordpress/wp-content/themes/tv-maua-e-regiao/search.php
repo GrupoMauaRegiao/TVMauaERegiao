@@ -18,10 +18,23 @@
     <div class="box">
       <div class="elementos">
         <?php while ( have_posts() ) : the_post(); ?>
-          <div class="item-busca">
-            <p><?php the_title(); ?></p>
+          <?php $category = get_the_category(); ?>
+          <div class="sugestoes">
+          <a href="<?php bloginfo('url'); ?>/categorias/<?php echo $category[0]->slug; ?>">
+            <div class="sugestao">
+              <div class="imagem">
+                <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=120&amp;h=100' />
+              </div>
+              <div class="categoria">
+                <span>
+                  <?php the_title(); ?> &raquo; <i><?php echo $category[0]->cat_name; ?></i>
+                </span>
+              </div>
+            </div>
+          </a>
           </div>
         <?php endwhile; else : ?>
+
           <div class='conteudo'>
             <div class="icone-lupa"></div>
             <div class="mensagem-busca">
@@ -38,7 +51,7 @@
                   <?php query_posts("orderby=rand&posts_per_page=5&tag=videos"); ?>
                   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <?php $category = get_the_category(); ?>
-                      <a href="<?php bloginfo('url'); ?>/categorias/<?php echo $category[0]->slug . "?s=name=" . $post->ID; ?>">
+                      <a href="<?php bloginfo('url'); ?>/categorias/<?php echo $category[0]->slug; ?>">
                         <div class="sugestao">
                           <div class="imagem">
                             <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=120&amp;h=100' />
@@ -50,6 +63,7 @@
                           </div>
                         </div>
                       </a>
+
                   <?php endwhile; else: ?>
                   <?php endif; ?>
                 </div>

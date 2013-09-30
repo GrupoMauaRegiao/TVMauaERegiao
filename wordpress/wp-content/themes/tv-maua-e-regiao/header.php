@@ -1,5 +1,34 @@
 <?php
-function categorias_sem_title() {
+function definirTitulo() {
+  $arrCategoria = get_the_category();
+
+  function verificaQTDVideos($arrCategoria) {
+    $QTDVideos = $arrCategoria[0]->count;
+    return $QTDVideos > 1 ? $QTDVideos . " vídeos" : $QTDVideos . " vídeo";
+  }
+
+  $categoria = $arrCategoria[0]->cat_name . " (" . verificaQTDVideos($arrCategoria) . ")";
+
+  $nome = get_bloginfo('name');
+  $tituloPadrao = "&#9658; " . $nome;
+  $titulo = get_the_title();
+  $busca = get_search_query();
+
+
+  if (is_home()) {
+    $tituloWebsite = $tituloPadrao;
+  } elseif (is_page()) {
+    $tituloWebsite = $tituloPadrao . " | " . $titulo;
+  } elseif (is_category()) {
+    $tituloWebsite = $tituloPadrao . " | " . $categoria;
+  } elseif (is_search()) {
+    $tituloWebsite = $tituloPadrao . " | Busca por " . $busca;
+  }
+
+  return $tituloWebsite;
+}
+
+function categoriasSemTitle() {
   $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=6');
   $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
   $categories = str_replace("(", "<i>", $categories);
@@ -13,9 +42,9 @@ function categorias_sem_title() {
     <meta charset='UTF-8'>
     <meta content='tv maua, maua, sp, maua e regiao, gerupo maua e regiao, empresas de mauá, ribeirão pires, revista maua, jornal maua, comprar em maua, comprar em rio grande da serra, comprar em ribeirão pires' name='keywords'>
     <meta content='Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe.' name='description'>
-    <meta content='Grupo Mauá e Região de Comunicação' name='author'>
+    <meta content='Grupo Mauá e Região de Comunicaçãotva' name='author'>
     <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>
-    <title><?php bloginfo('name'); ?><?php if (!is_home()): ?> | <?php the_title(); ?><?php endif ?></title>
+    <title><?php echo definirTitulo(); ?></title>
   </head>
   <body>
     <div class='layout'>
@@ -37,7 +66,7 @@ function categorias_sem_title() {
             <div class='lista-categorias'>
               <div class='aba'></div>
               <ul>
-                <?php echo categorias_sem_title(); ?>
+                <?php echo categoriasSemTitle(); ?>
               </ul>
             </div>
           </div>

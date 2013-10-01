@@ -1,6 +1,16 @@
 <?php $category = get_the_category(); ?>
 <?php get_header(); ?>
 
+<?php // Destaca vídeo por ID recebido pela variável "vid" (via GET)
+$query = $_GET["vid"];
+$baseQuery = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug;
+
+if ($query) {
+  $query = $baseQuery . "&p=" . $query;
+} else {
+  $query = $baseQuery;
+}
+?>
 <div class='conteudo'>
   <div class="nome-categoria">
     <h2><?php echo $category[0]->name; ?></h2>
@@ -17,15 +27,14 @@
   <div class='botao-mais-informacoes'>
     <input type='button' value='Mais Informações'>
   </div>
-  <div class='sombra'></div>
+  <div class='sombra esconder'></div>
 </div>
-<div class='lista-de-videos'>
+<div class='lista-de-videos esconder'>
   <div class='clips clips-categoria'>
     <div class="cabecalho-lista-de-videos">
-      <h2>Anunciantes <?php echo $query; ?></h2>
+      <h2>Anunciantes</h2>
     </div>
     <ul>
-      <?php $query = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug; ?>
       <?php query_posts($query); ?>
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <li>

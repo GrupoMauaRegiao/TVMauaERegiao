@@ -10,7 +10,7 @@ function definirTitulo() {
   $categoria = $arrCategoria[0]->cat_name . " (" . verificaQTDVideos($arrCategoria) . ")";
 
   $nome = get_bloginfo('name');
-  $tituloPadrao = "&#9658; " . $nome;
+  $tituloPadrao = "&#x25B6; " . $nome;
   $titulo = get_the_title();
   $busca = get_search_query();
 

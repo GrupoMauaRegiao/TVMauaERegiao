@@ -15,15 +15,7 @@
             </div>
             <div class='links'>
               <ul>
-                <li>
-                  <a href='#'>Sobre nós</a>
-                </li>
-                <li>
-                  <a href='#'>Anuncie</a>
-                </li>
-                <li>
-                  <a href='#'>Fale conosco</a>
-                </li>
+                <?php wp_list_pages('sort_column=menu_order&title_li='); ?>
               </ul>
             </div>
             <a href='http://grupomauaeregiao.com.br' target='_blank'>

@@ -7,8 +7,10 @@ $baseQuery = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category
 
 if ($query) {
   $query = $baseQuery . "&p=" . $query;
+  $classe = "esconder";
 } else {
   $query = $baseQuery;
+  $classe = "exibir";
 }
 ?>
 <div class='conteudo'>
@@ -17,8 +19,8 @@ if ($query) {
   </div>
   <div class='player individual'>
     <div class='video'>
-      <a href='http://localhost/TVMauaERegiao/wordpress/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>
-      <!-- <a href='http://marcker.net/tv-wp/wp-content/uploads/2013/09/play.flv' id='flv-player'></a> -->
+      <!-- <a href='http://localhost/TVMauaERegiao/wordpress/wp-content/uploads/2013/09/play.flv' id='flv-player'></a> -->
+      <a href='http://marcker.net/tv-wp/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>
     </div>
   </div>
   <div class='informacoes-anunciante'>
@@ -27,9 +29,9 @@ if ($query) {
   <div class='botao-mais-informacoes'>
     <input type='button' value='Mais Informações'>
   </div>
-  <div class='sombra esconder'></div>
+  <div class='sombra <?php echo $classe; ?>'></div>
 </div>
-<div class='lista-de-videos esconder'>
+<div class='lista-de-videos <?php echo $classe; ?>'>
   <div class='clips clips-categoria'>
     <div class="cabecalho-lista-de-videos">
       <h2>Anunciantes</h2>

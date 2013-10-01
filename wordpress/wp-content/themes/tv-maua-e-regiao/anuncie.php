@@ -24,6 +24,4 @@
   </div>
 </div>
 
-<div class="banner-pagina-abaixo">
-
-</div>
+<div class="banner-pagina-abaixo"></div>

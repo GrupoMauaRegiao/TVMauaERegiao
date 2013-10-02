@@ -17,12 +17,13 @@
             <img src='<?php bloginfo("template_url"); ?>/imagens/sem-publicidade.jpg' alt=''>
           <?php endif; ?>
         </div>
-        <div class='informacoes-anunciante'>
-          <div class='nome-anunciante'></div>
-          <div class='categoria'></div>
-        </div>
-        <div class='botao-mais-informacoes'>
-          <input type='button' value='Mais Informações'>
+        <div class="informacoes-anunciante">
+          <div class='informacoes-anunciante-nome'>
+            <div class='nome-anunciante'></div>
+          </div>
+          <div class='botao-mais-informacoes'>
+            <input type='button' value='Informações'>
+          </div>
         </div>
       </div>
       <div class='lista-de-videos'>

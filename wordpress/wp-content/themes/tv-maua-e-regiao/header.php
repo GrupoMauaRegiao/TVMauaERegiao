@@ -37,6 +37,15 @@ function categoriasSemTitle() {
   $categories = str_replace(")", "</i>  ", $categories);
   return $categories;
 }
+
+function adicionarClasse() {
+  if (is_home()) {
+    $classe = "home";
+  } else {
+    $classe = "";
+  }
+  return $classe;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,7 +58,7 @@ function categoriasSemTitle() {
     <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>
     <title><?php echo definirTitulo(); ?></title>
   </head>
-  <body>
+  <body class="<?php echo adicionarClasse(); ?>">
     <div class='layout'>
       <div class='cabecalho'>
         <div class='elementos'>

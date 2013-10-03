@@ -1,15 +1,25 @@
 <?php get_header(); ?>
-<?php // Obtem somente posts com a tag "video" 
+
+<?php
+// Obtem somente posts com a tag "video"
 if (!$wp_query) {
   global $wp_query;
 }
 
-$args = array("tag" => "videos");
-$args = array_merge($args, $wp_query->query);
+$args = array(
+  "tag" => "videos",
+  "cat" => "-12" // Exclui programas da busca
+);
+
+$args = array_merge(
+  $args,
+  $wp_query->query
+);
 
 query_posts($args);
 ?>
   <?php if ( have_posts() ) : ?>
+
   <div class='conteudo'>
     <div class="icone-lupa"></div>
     <div class="mensagem-busca">
@@ -17,8 +27,10 @@ query_posts($args);
     </div>
     <div class="box">
       <div class="elementos">
+
         <?php while ( have_posts() ) : the_post(); ?>
           <?php $category = get_the_category(); ?>
+
           <div class="sugestoes">
           <a href="<?php bloginfo('url'); ?>/categorias/<?php echo $category[0]->slug . add_query_arg('vid', $post->ID, ''); ?>">
             <div class="sugestao">
@@ -33,6 +45,7 @@ query_posts($args);
             </div>
           </a>
           </div>
+
         <?php endwhile; else : ?>
 
           <div class='conteudo'>
@@ -48,7 +61,7 @@ query_posts($args);
                   Por favor, procure com outros termos ou assista as sugestões:</p>
                 </div>
                 <div class="sugestoes">
-                  <?php query_posts("orderby=rand&posts_per_page=5&tag=videos"); ?>
+                  <?php query_posts("orderby=rand&posts_per_page=5&tag=videos&cat=-12"); ?>
                   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <?php $category = get_the_category(); ?>
                       <a href="<?php bloginfo('url'); ?>/categorias/<?php echo $category[0]->slug . add_query_arg('vid', $post->ID, ''); ?>">
@@ -66,9 +79,12 @@ query_posts($args);
 
                   <?php endwhile; else: ?>
                   <?php endif; ?>
+
                 </div>
+
         <?php endif; ?>
       </div>
     </div>
   </div>
+
 <?php get_footer(); ?>

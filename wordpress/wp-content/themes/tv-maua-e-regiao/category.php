@@ -1,7 +1,8 @@
 <?php $category = get_the_category(); ?>
-<?php get_header(); ?>
 
-<?php // Destaca vídeo por ID recebido pela variável "vid" (via GET)
+<?php get_header(); ?>
+<?php
+// Destaca vídeo por ID recebido pela variável "vid" (via GET)
 $query = $_GET["vid"];
 $baseQuery = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug;
 
@@ -13,14 +14,15 @@ if ($query) {
   $classe = "exibir";
 }
 ?>
+
 <div class='conteudo'>
   <div class="nome-categoria">
     <h2><?php echo $category[0]->name; ?></h2>
   </div>
   <div class='player individual'>
     <div class='video'>
-      <a href='http://localhost/TVMauaERegiao/wordpress/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>
-      <!-- <a href='http://marcker.net/tv-wp/wp-content/uploads/2013/09/play.flv' id='flv-player'></a> -->
+      <!-- <a href='http://localhost/TVMauaERegiao/wordpress/wp-content/uploads/2013/09/play.flv' id='flv-player'></a> -->
+      <a href='http://marcker.net/tv-wp/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>
     </div>
   </div>
   <div class="informacoes-anunciante">
@@ -36,7 +38,11 @@ if ($query) {
 <div class='lista-de-videos <?php echo $classe; ?>'>
   <div class='clips clips-categoria'>
     <div class="cabecalho-lista-de-videos">
-      <h2>Anunciantes</h2>
+      <?php if ($_GET["canal"]) { ?>
+        <h2>Vídeos</h2>
+      <?php } else { ?>
+        <h2>Anunciantes</h2>
+      <?php } ?>
     </div>
     <ul>
       <?php query_posts($query); ?>
@@ -52,4 +58,5 @@ if ($query) {
     </ul>
   </div>
 </div>
+
 <?php get_footer(); ?>

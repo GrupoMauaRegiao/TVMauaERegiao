@@ -412,6 +412,82 @@ body
         position: static !important
         height: auto !important
 
+    .lista-de-programas
+      width: 100%
+      padding: 0 0 25px 0
+      margin: -20px 0 -1px 0
+      background: rgb(33, 33, 33)
+      float: left
+
+      .conteudo-programas
+        width: 960px
+        margin: 0 auto
+
+        .titulo
+          margin: 30px 0 0 0
+
+          h2
+            color: rgb(97, 181, 228)
+            text-transform: uppercase
+            font-size: 30px
+
+        .programas
+          width: 960px
+          margin: 0 auto
+
+          .programa
+            width: 440px
+            height: 260px
+            margin: 20px 20px
+            float: left
+
+            .imagem
+              img
+                width: 240px
+                height: 250px
+
+            .aba-imagem
+              width: 20px
+              height: 250px
+              margin: -254px 0 0 220px
+              position: relative
+              background: transparent url('../imagens/aba-programas.png') no-repeat
+
+            .informacoes-programa
+              position: relative
+              margin: -100px 0 0 -10px
+
+              .categoria-programa
+                text-align: right
+                padding: 0 15px 5px 0
+
+                span
+                  color: $branco
+                  text-transform: uppercase
+                  font-size: 18px
+
+              .nome-programa
+                height: 65px
+                overflow: hidden
+                padding: 20px 5px 3px 15px
+                background: rgba(0, 0, 0, 0.6)
+                border-radius: 10px
+
+                a
+                  color: $branco
+                  text-transform: uppercase
+                  text-decoration: none
+                  font-size: 24px
+                  line-height: 28px
+                  -webkit-transition: all 0.3s linear
+                  -moz-transition: all 0.3s linear
+                  -ms-transition: all 0.3s linear
+                  -o-transition: all 0.3s linear
+                  transition: all 0.3s linear
+
+              a:hover
+                color: rgb(210, 210, 210)
+
     .icone-lupa
       width: 25px
       height: 20px
@@ -466,6 +542,8 @@ body
 
           .sugestao
             width: 960px
+            height: 106px
+            overflow: hidden
             margin: 0 0 10px 0
             background: rgb(3, 3, 3)
             padding: 7px 0 0 0
@@ -529,6 +607,9 @@ body
       margin: 0 auto
       background: url('../imagens/sombra-rodape.jpg') no-repeat 50%
       float: left
+
+    .invertida
+      background: url('../imagens/sombra-rodape-invertido.jpg') no-repeat 50%
 
     .rodape
       width: 100%

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset='UTF-8'>
@@ -9,7 +9,7 @@
     <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>
     <title><?php echo definirTitulo(); ?></title>
   </head>
-  <body class="<?php echo adicionarClasse(); ?>">
+  <body class="<?php echo adicionarClasseHome(); ?>">
     <div class='layout'>
       <div class='cabecalho'>
         <div class='elementos'>

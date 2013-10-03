@@ -1,4 +1,4 @@
-      <div class='sombra'></div>
+      <div class='sombra <?php echo inverterSombra(); ?>'></div>
       <div class='rodape'>
         <div class='elementos'>
           <div class='informacoes'>

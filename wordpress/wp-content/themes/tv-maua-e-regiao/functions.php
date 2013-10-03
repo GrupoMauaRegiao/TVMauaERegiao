@@ -30,16 +30,26 @@ function definirTitulo() {
 }
 
 function categoriasSemTitle() {
-  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=6');
+  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=6,12');
   $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
   $categories = str_replace("(", "<i>", $categories);
   $categories = str_replace(")", "</i>  ", $categories);
   return $categories;
 }
 
-function adicionarClasse() {
+function adicionarClasseHome() {
   if (is_home()) {
     $classe = "home";
+  } else {
+    $classe = "";
+  }
+  return $classe;
+}
+
+function inverterSombra() {
+  wp_reset_query();
+  if (is_home()) {
+    $classe = "invertida";
   } else {
     $classe = "";
   }

@@ -1,8 +1,8 @@
 TVMaua = TVMaua or {}
 TVMaua.apps =
   path: ->
-    'http://localhost/TVMauaERegiao/wordpress/wp-content/themes/tv-maua-e-regiao/'
-    # 'http://marcker.net/tv-wp/wp-content/themes/tv-maua-e-regiao/'
+    # 'http://localhost/TVMauaERegiao/wordpress/wp-content/themes/tv-maua-e-regiao/'
+    'http://marcker.net/tv-wp/wp-content/themes/tv-maua-e-regiao/'
     
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
@@ -206,4 +206,6 @@ window.onload = ->
   Apps.animacaoCabecalho()
   Apps.carousel()
   Apps.controlarTamanhoString '.clips ul li a p', 16
+  Apps.controlarTamanhoString '.nome-programa a', 48
+  Apps.controlarTamanhoString '.categoria-programa span', 16
   return

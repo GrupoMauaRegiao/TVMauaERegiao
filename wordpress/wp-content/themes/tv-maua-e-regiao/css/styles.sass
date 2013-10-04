@@ -8,6 +8,12 @@
 $branco: rgb(255, 255, 255)
 $preto: rgb(0, 0, 0)
 
+.erro
+  box-shadow: 0 0 20px rgb(255, 55, 55) !important
+
+.exibir
+  display: block !important
+
 .esconder
   display: none
 
@@ -581,11 +587,21 @@ body
                   -o-transition: all 0.3s linear
                   transition: all 0.3s linear
 
-        .formulario
+        .mensagem-sucesso,
+        .formulario-fale-conosco
           width: 480px
           margin: -20px 0 0 0
           float: left
-          
+
+        .mensagem-sucesso
+          display: none
+
+          p
+            color: $branco
+            font-size: 25px
+            padding: 10px
+
+        .formulario-fale-conosco
           form
             padding: 50px 10px 10px 10px
 
@@ -688,6 +704,10 @@ body
       width: 100%
       height: 370px
       background: url('../imagens/Cordis.jpg') no-repeat 0 70px
+      background-size: cover
+
+    .banner-fale-conosco
+      background: url('../imagens/bg-banner-teste-apagar.jpg') no-repeat
       background-size: cover
 
     .banner-pagina-acima + .conteudo

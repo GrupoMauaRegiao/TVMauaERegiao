@@ -1,11 +1,15 @@
+<div class="banner-pagina-acima banner-fale-conosco"></div>
 <div class='conteudo'>
   <div class="titulo-pagina">
     <h2><?php the_title(); ?></h2>
   </div>
   <div class="box">
     <div class="elementos">
-      <div class="formulario">
-        <form action="enviar-mensagem.php" enctype="multipart/form-data" method="get">
+      <div class="mensagem-sucesso">
+        <p>Mensagem enviada com sucesso.<br> Obrigado!</p>
+      </div>
+      <div class="formulario-fale-conosco">
+        <form action="<?php bloginfo('template_url'); ?>/enviar-mensagem.php" enctype="multipart/form-data" method="get">
           <label for='nome'>Nome <br></label>
           <input id='nome' type='text'>
           <br>

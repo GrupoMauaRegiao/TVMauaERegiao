@@ -1,10 +1,33 @@
 <!doctype html>
-<html>
+<html prefix='og: http://ogp.me/ns#'>
   <head>
     <meta charset='UTF-8'>
     <meta content='tv maua, maua, sp, maua e regiao, grupo maua e regiao, empresas de mauá, ribeirão pires, revista maua, jornal maua, comprar em maua, comprar em rio grande da serra, comprar em ribeirão pires' name='keywords'>
     <meta content='Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe.' name='description'>
     <meta content='Grupo Mauá e Região de Comunicaçãotva' name='author'>
+
+    <!-- Open Graph Protocol -->
+    <meta property="og:url" content="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
+
+    <?php if (is_home()) { ?>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php bloginfo('name'); ?>" />
+    <meta property="og:description" content="Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe os nossos programas." />
+
+    <? } else { ?>
+
+    <meta property="og:type" content="video" />
+    <meta property="og:title" content="<?php echo get_the_title($_GET['vid']); ?>" />
+    <meta property="og:description" content="A <?php echo get_the_title($_GET['vid']); ?> tem um vídeo novo na TV Mauá e Região. Não perca tempo, assista-o agora mesmo." />
+    <meta property="og:video" content="<?php echo get_post_meta($_GET['vid'], "VÍDEO", true); ?>">
+    <meta property="og:video:type" content="application/x-shockwave-flash" />
+    <meta property="og:video:width" content="640" />
+    <meta property="og:video:height" content="480" />
+
+    <?php } ?>
+    <!-- # Open Graph Protocol -->
+    
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/imagens/favicon.ico" />
     <link href='<?php bloginfo("template_url"); ?>/js/libs/fancybox/source/jquery.fancybox.css' rel='stylesheet'>
     <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>

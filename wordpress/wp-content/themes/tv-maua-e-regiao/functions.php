@@ -32,7 +32,7 @@ function definirTitulo() {
     $tituloWebsite = $tituloPadrao . " | Busca por " . $busca;
   } elseif (is_404()) {
     $tituloWebsite = $tituloPadrao . " | Página não encontrada";
-  }
+  } 
 
   return $tituloWebsite;
 }

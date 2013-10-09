@@ -40,8 +40,14 @@
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
               <li>
-                <?php $categoria = get_the_category(); ?>
-                <a data-categoria='<?php echo $categoria[0]->cat_name; ?>' href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>' title='<?php the_title(); ?>'>
+                <?php
+                $categoria = get_the_category();
+                $nomeEmpresa = sanitize_title(get_post_meta($post->ID, "NOME EMPRESA (cadastro)", true));
+                ?>
+                <a data-perfil='<?php echo bloginfo("url") . "/categorias/empresas/" . $nomeEmpresa . add_query_arg("perfil", $nomeEmpresa, ""); ?>'
+                   data-categoria='<?php echo $categoria[0]->cat_name; ?>'
+                   href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
+                   title='<?php the_title(); ?>'>
                   <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=180'>
                   <p><?php the_title(); ?></p>
                 </a>

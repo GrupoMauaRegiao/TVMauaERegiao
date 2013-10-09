@@ -17,6 +17,7 @@ TVMaua.apps =
     # Scripts
     _carregar TVMaua.apps.path() + 'js/libs/flowplayer-3.2.12.min.js'
     _carregar TVMaua.apps.path() + 'js/libs/jquery.carouFredSel-6.2.1-packed.js'
+    _carregar TVMaua.apps.path() + 'js/libs/fancybox/source/jquery.fancybox.js'
     return
 
   flowPlayer: ->
@@ -27,11 +28,23 @@ TVMaua.apps =
       a = document.querySelectorAll '.clips ul li a'
       nomeAnuncte = document.querySelector '.informacoes-anunciante .nome-anunciante'
       catAnuncte = document.querySelector '.informacoes-anunciante .categoria'
+      botInformacoes = document.querySelector '.botao-mais-informacoes input[type="button"]'
       clips = []
       nomes = []
       cats = []
+      perfis = []
+      urlPerfil = ''
       carousel = jQuery '.clips ul'
       Apps = TVMaua.apps
+
+      _alterarLocationParaPerfil = ->
+        window.location = urlPerfil
+        return
+
+      _listeners = ->
+        if botInformacoes
+          botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
+        return
 
       _playerDefault = ->
         $f containerPlayer, {
@@ -41,6 +54,8 @@ TVMaua.apps =
           playlist: clips
 
           onStart: (clip) ->
+            Apps.scrollTop()
+            urlPerfil = perfis[clip.index]
             _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[clip.index], catAnuncte
             carousel.trigger 'slideTo', clip.index
@@ -63,6 +78,7 @@ TVMaua.apps =
       _mudarVideo = (evt) ->
         len = clips.length
         index = clips.indexOf(@.getAttribute 'href') + 1
+        urlPerfil = perfis[index - 1]
 
         # Player utilizado após clique
         $f(containerPlayer, {
@@ -70,6 +86,7 @@ TVMaua.apps =
           wmode: 'transparent'
         }, {
           onStart: ->
+            Apps.scrollTop()
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[index - 1], catAnuncte
             carousel.trigger 'slideTo', index - 1
@@ -88,9 +105,11 @@ TVMaua.apps =
         clips[i] = item.getAttribute 'href'
         nomes[i] = item.getAttribute 'title'
         cats[i] = item.getAttribute 'data-categoria'
+        perfis[i] = item.getAttribute 'data-perfil'
 
       # Player inicial
       do ->
+        _listeners()
         _playerDefault()
         return
     return
@@ -238,6 +257,54 @@ TVMaua.apps =
         return
     return
 
+  scrollTop: ->
+    $('html, body').animate {
+      scrollTop: 0
+    }, 1000
+    return
+
+  obterEnderecosDoTexto: (texto) ->
+    enderecos = []
+    re = /{([^}]+)}/g
+    endereco = ''
+
+    while (endereco = re.exec texto)
+      enderecos.push endereco[1]
+
+    enderecos;
+
+  removerChavesDoTexto: (texto) ->
+    texto = texto.replace /[\{\}']+/g,''
+    texto
+
+  criarMapa: ->
+    Apps = TVMaua.apps
+    linksMapa = document.querySelectorAll 'a[href="http://mapa"]'
+    enderecos = document.querySelectorAll '.lista-de-informacoes .box .elementos .texto'
+    arrEnderecos = Apps.obterEnderecosDoTexto enderecos[0].textContent
+
+    for linkMapa, i in linksMapa
+      linkMapa.setAttribute 'class', 'fancybox.iframe'
+      linkMapa.setAttribute 'href', 'https://maps.google.com/?output=embed&q=' + arrEnderecos[i] + '&center=' + arrEnderecos[i] + 'hl=pt&t=m&z=16'
+
+    conteudoEnderecos = document.querySelector '.lista-de-informacoes .box .elementos .texto'
+    conteudoEnderecos.innerHTML = Apps.removerChavesDoTexto conteudoEnderecos.innerHTML
+
+    return
+
+  criarEfeitoNoMapa: ->
+    $('[href^="https://maps.google.com"]').fancybox {
+      maxWidth: 960
+      maxHeight: 600
+      fitToView: true
+      width: '70%'
+      height: '70%'
+      closeClick: false
+      iframe:
+        preload: false
+    }
+    return
+
 Apps = TVMaua.apps
 do ->
   Apps.carregarScripts()
@@ -252,4 +319,6 @@ window.onload = ->
   Apps.controlarTamanhoString '.nome-programa a', 48
   Apps.controlarTamanhoString '.categoria-programa span', 16
   Apps.enviarEmail()
+  Apps.criarMapa()
+  Apps.criarEfeitoNoMapa()
   return

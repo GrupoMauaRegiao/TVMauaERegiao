@@ -20,6 +20,9 @@ $preto: rgb(0, 0, 0)
 .home
   background: $preto url('../imagens/bg-informacoes-anunciante.jpg') no-repeat 50% 560px
 
+.perfil
+  background: $preto url('../imagens/bg-informacoes-anunciante.jpg') no-repeat 50% 110px
+
 body
   background: $preto
   font-family: Gotham, cursive
@@ -109,7 +112,7 @@ body
                 transition: all 0.3s linear
                 text-transform: uppercase
                 cursor: pointer
-            
+
             .titulo:hover
               p
                 color: rgb(127, 137, 139)
@@ -222,6 +225,48 @@ body
           text-transform: uppercase
           color: rgb(97, 181, 228)
           padding: 0 0 10px 0
+
+      .lista-de-informacoes
+        width: 960px
+        margin: 0 auto
+        padding: 40px 0 0 0
+        margin-bottom: 40px
+        border-top: 2px solid rgb(51, 51, 51)
+        float: left
+
+        .box
+          .elementos
+            .texto
+              padding: 0 0 0 20px
+
+              p
+                font-size: 20px
+                line-height: 22px
+                text-indent: 0
+
+                strong
+                  font-weight: 900
+
+                a
+                  color: rgb(230, 230, 230)
+                  text-decoration: none
+                  font-weight: 700
+                  -webkit-transition: all 0.3s linear
+                  -moz-transition: all 0.3s linear
+                  -ms-transition: all 0.3s linear
+                  -o-transition: all 0.3s linear
+                  transition: all 0.3s linear
+
+                a:hover
+                  color: rgb(255, 255, 255)
+
+      .titulo-perfil
+        h2
+          font-size: 30px
+          text-transform: uppercase
+          color: rgb(188, 192, 204)
+          padding: 55px 0 10px 0
+          margin: 0 0 20px 0
 
       .mensagem-busca
         width: 960px

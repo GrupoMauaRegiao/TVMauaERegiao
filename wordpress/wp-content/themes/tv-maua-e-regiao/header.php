@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset='UTF-8'>
-    <meta content='tv maua, maua, sp, maua e regiao, gerupo maua e regiao, empresas de mauá, ribeirão pires, revista maua, jornal maua, comprar em maua, comprar em rio grande da serra, comprar em ribeirão pires' name='keywords'>
+    <meta content='tv maua, maua, sp, maua e regiao, grupo maua e regiao, empresas de mauá, ribeirão pires, revista maua, jornal maua, comprar em maua, comprar em rio grande da serra, comprar em ribeirão pires' name='keywords'>
     <meta content='Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe.' name='description'>
     <meta content='Grupo Mauá e Região de Comunicaçãotva' name='author'>
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/imagens/favicon.ico" />
+    <link href='<?php bloginfo("template_url"); ?>/js/libs/fancybox/source/jquery.fancybox.css' rel='stylesheet'>
     <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>
     <title><?php echo definirTitulo(); ?></title>
   </head>

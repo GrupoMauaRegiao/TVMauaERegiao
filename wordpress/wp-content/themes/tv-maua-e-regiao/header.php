@@ -3,7 +3,7 @@
   <head>
     <meta charset='UTF-8'>
     <meta content='tv maua, maua, sp, maua e regiao, grupo maua e regiao, empresas de mauá, ribeirão pires, revista maua, jornal maua, comprar em maua, comprar em rio grande da serra, comprar em ribeirão pires' name='keywords'>
-    <meta content='Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe.' name='description'>
+    <meta content='Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe os nossos programas.' name='description'>
     <meta content='Grupo Mauá e Região de Comunicaçãotva' name='author'>
 
     <!-- Open Graph Protocol -->

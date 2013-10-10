@@ -61,7 +61,7 @@
     <div class="nome-categoria">
       <h2><?php echo $category[0]->name; ?></h2>
     </div>
-    <div class='player individual'>
+    <div class='player individual <?php if ($_GET["canal"]) { echo "canal"; } ?>'>
       <div class='video'>
         <!-- <a href='http://localhost/TVMauaERegiao/wordpress/wp-content/uploads/2013/09/play.flv' id='flv-player'></a> -->
         <a href='http://marcker.net/tv-wp/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>

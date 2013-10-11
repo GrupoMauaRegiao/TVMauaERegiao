@@ -1,9 +1,8 @@
 TVMaua = TVMaua or {}
 TVMaua.apps =
   path: ->
-    # 'http://localhost/TVMauaERegiao/wordpress/wp-content/themes/tv-maua-e-regiao/'
     'http://marcker.net/tv-wp/wp-content/themes/tv-maua-e-regiao/'
-    
+
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
 
@@ -26,6 +25,8 @@ TVMaua.apps =
     if containerPlayer
       flashPlayer = TVMaua.apps.path() + 'flv-player/flowplayer-3.2.16.swf'
       a = document.querySelectorAll '.clips ul li a'
+      linkPublicidadeLateral = document.querySelector '.publicidade a'
+      publicidadeLateral = document.querySelector '.publicidade a img'
       nomeAnuncte = document.querySelector '.informacoes-anunciante .nome-anunciante'
       catAnuncte = document.querySelector '.informacoes-anunciante .categoria'
       botInformacoes = document.querySelector '.botao-mais-informacoes input[type="button"]'
@@ -33,6 +34,8 @@ TVMaua.apps =
       nomes = []
       cats = []
       perfis = []
+      linksPublicidades = []
+      publicidades = []
       urlPerfil = ''
       carousel = jQuery '.clips ul'
       Apps = TVMaua.apps
@@ -43,6 +46,11 @@ TVMaua.apps =
 
       _alterarLocationParaPerfil = ->
         window.location = urlPerfil
+        return
+
+      _alterarPublicidadeLateral = (imagem, link) ->
+        linkPublicidadeLateral.setAttribute 'href', link
+        publicidadeLateral.setAttribute 'src', imagem
         return
 
       _listeners = ->
@@ -60,6 +68,7 @@ TVMaua.apps =
           onStart: (clip) ->
             Apps.scrollTop()
             urlPerfil = perfis[clip.index]
+            _alterarPublicidadeLateral publicidades[clip.index], linksPublicidades[clip.index]
             _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[clip.index], catAnuncte
             carousel.trigger 'slideTo', clip.index
@@ -72,8 +81,7 @@ TVMaua.apps =
 
           plugins:
             controls:
-              autoHide: 'never'
-              buttonColor: 'rgba(97, 181, 228, 0.9)'
+              buttonColor: 'rgba(150, 150, 150, 0.9)'
               buttonOverColor: 'rgb(255, 255, 255)'
               backgroundColor: 'rgb(97, 108, 112)'
               backgroundGradient: 'none'
@@ -106,6 +114,7 @@ TVMaua.apps =
         }, {
           onStart: ->
             Apps.scrollTop()
+            _alterarPublicidadeLateral publicidades[index - 1], linksPublicidades[index - 1]
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[index - 1], catAnuncte
             carousel.trigger 'slideTo', index - 1
@@ -139,6 +148,8 @@ TVMaua.apps =
         nomes[i] = item.getAttribute 'title'
         cats[i] = item.getAttribute 'data-categoria'
         perfis[i] = item.getAttribute 'data-perfil'
+        linksPublicidades[i] = item.getAttribute 'data-pub-link'
+        publicidades[i] = item.getAttribute 'data-pub-imagem'
 
       # Player inicial
       do ->
@@ -195,9 +206,11 @@ TVMaua.apps =
     return
 
   carousel: ->
-    carousel = jQuery '.clips ul'
+    carousel = document.querySelector '.clips ul'
 
     if carousel
+      carousel = jQuery '.clips ul'
+
       _executar = ->
         carousel.carouFredSel({
           auto: false,
@@ -311,18 +324,19 @@ TVMaua.apps =
     texto
 
   criarMapa: ->
-    Apps = TVMaua.apps
     linksMapa = document.querySelectorAll 'a[href="http://mapa"]'
-    enderecos = document.querySelectorAll '.lista-de-informacoes .box .elementos .texto'
-    arrEnderecos = Apps.obterEnderecosDoTexto enderecos[0].textContent
 
-    for linkMapa, i in linksMapa
-      linkMapa.setAttribute 'class', 'fancybox.iframe'
-      linkMapa.setAttribute 'href', 'https://maps.google.com/?output=embed&q=' + arrEnderecos[i] + '&center=' + arrEnderecos[i] + 'hl=pt&t=m&z=16'
+    if linksMapa[0]
+      Apps = TVMaua.apps
+      enderecos = document.querySelectorAll '.lista-de-informacoes .box .elementos .texto'
+      arrEnderecos = Apps.obterEnderecosDoTexto enderecos[0].textContent
 
-    conteudoEnderecos = document.querySelector '.lista-de-informacoes .box .elementos .texto'
-    conteudoEnderecos.innerHTML = Apps.removerChavesDoTexto conteudoEnderecos.innerHTML
+      for linkMapa, i in linksMapa
+        linkMapa.setAttribute 'class', 'fancybox.iframe'
+        linkMapa.setAttribute 'href', 'https://maps.google.com/?output=embed&q=' + arrEnderecos[i] + '&center=' + arrEnderecos[i] + 'hl=pt&t=m&z=16'
 
+      conteudoEnderecos = document.querySelector '.lista-de-informacoes .box .elementos .texto'
+      conteudoEnderecos.innerHTML = Apps.removerChavesDoTexto conteudoEnderecos.innerHTML
     return
 
   criarEfeitoNoMapa: ->

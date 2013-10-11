@@ -37,13 +37,17 @@ TVMaua.apps =
       carousel = jQuery '.clips ul'
       Apps = TVMaua.apps
 
+      _desativarDragPlayer = (evt) ->
+        evt.preventDefault()
+        return
+
       _alterarLocationParaPerfil = ->
         window.location = urlPerfil
         return
 
       _listeners = ->
-        if botInformacoes
-          botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
+        botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
+        containerPlayer.addEventListener 'dragstart', _desativarDragPlayer
         return
 
       _playerDefault = ->
@@ -65,6 +69,21 @@ TVMaua.apps =
             if @.getClip().index + 1 is @.getPlaylist().length
               $f().play 0
             return
+
+          plugins:
+            controls:
+              autoHide: 'never'
+              buttonColor: 'rgba(97, 181, 228, 0.9)'
+              buttonOverColor: 'rgb(255, 255, 255)'
+              backgroundColor: 'rgb(97, 108, 112)'
+              backgroundGradient: 'none'
+              sliderColor: 'rgb(245, 134, 52)'
+              progressColor: 'rgb(245, 134, 52)'
+              sliderBorder: 'none'
+              volumeSliderColor: 'rgb(245, 134, 52)'
+              volumeBorder: 'none'
+              timeColor: 'rgb(255, 255, 255)'
+              durationColor: 'rgb(255, 255, 255)'
         }
 
       _exibirDadosAnuncte = (tipo, nome, container) ->
@@ -96,6 +115,20 @@ TVMaua.apps =
             if index isnt len then posicao = index else posicao = 0
             _playerDefault().play posicao
             return
+
+          plugins:
+            controls:
+              buttonColor: 'rgba(97, 181, 228, 0.9)'
+              buttonOverColor: 'rgb(245, 134, 52)'
+              backgroundColor: 'rgb(97, 108, 112)'
+              backgroundGradient: 'none'
+              sliderColor: 'rgb(245, 134, 52)'
+              progressColor: 'rgb(245, 134, 52)'
+              sliderBorder: 'none'
+              volumeSliderColor: 'rgb(245, 134, 52)'
+              volumeBorder: 'none'
+              timeColor: 'rgb(255, 255, 255)'
+              durationColor: 'rgb(255, 255, 255)'
         }).play @.getAttribute 'href'
         evt.preventDefault()
         return

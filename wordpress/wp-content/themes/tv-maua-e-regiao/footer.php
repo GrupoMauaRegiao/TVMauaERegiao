@@ -6,10 +6,10 @@
               <p>&copy; <span><?php date(Y) ?> Grupo Mauá e Região</span>, todos os direitos reservados.</p>
             </div>
             <div class='redes-sociais'>
-              <a href='http://facebook.com/imarcker' target='_blank'>
+              <a href='https://www.facebook.com/pages/Web-TV-Mau%C3%A1-e-Regi%C3%A3o/448246115280743' target='_blank'>
                 <div class='icone facebook'></div>
               </a>
-              <a href='http://youtube.com/imarcker' target='_blank'>
+              <a href='https://www.facebook.com/pages/Web-TV-Mau%C3%A1-e-Regi%C3%A3o/448246115280743' target='_blank'>
                 <div class='icone youtube'></div>
               </a>
             </div>

@@ -6,17 +6,17 @@
   <div class="box">
     <div class="elementos">
       <div class="texto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>
+          Somos um Grupo de Comunicação forte e consolidado, que une quatro produtos altamente qualificados para atender a grande demanda das cidades de Mauá e Região, são eles: o Jornal, a Revista, o Portal e a grande novidade que vai mudar o conceito de propaganda na região, a Web TV Mauá e Região. Todos com o intuito de atuar fortemente na publicidade virtual e impressa, e na segmentação de publicações direcionadas a cada tipo de necessidade de nossos anunciantes e clientes.
+        </p>
         <br>
-        <p>Consectetur adipisicing elit. At, perspiciatis, nostrum quisquam ea ex ad modi officiis quae molestiae ullam culpa ipsam rerum. Culpa, laudantium deleniti quasi nisi nemo quod.</p>
+        <p>
+          Além de formador de opinião, somos um Grupo que agrega valor ao cotidiano das pessoas, através das nossas ações de marketing e matérias especialmente realizadas para construir uma sociedade mais participativa e forte.
+        </p>
         <br>
-        <p>Ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, repudiandae, provident ipsam expedita facilis quae doloribus quia veritatis nobis dolores saepe accusamus a sed nemo deserunt odio assumenda debitis optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, ad laudantium vel adipisci sint repellat velit cumque nobis. Quae hic a fugit nobis perspiciatis quisquam ad nostrum illum eveniet maxime.</p>
-        <br>
-        <p>Amet, consectetur adipisicing elit. Facilis quidem eos sit vero quaerat saepe doloribus hic aspernatur non placeat. Autem quae iure voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolores.</p>
-        <br>
-        <p>Adipisicing elit. Quam, rerum.</p>
-        <br>
-        <p>Equipe do Grupo Mauá e Região de Comunicação</p>
+        <p>
+          <span>Oferecemos aos nossos clientes o melhor conteúdo impresso e online, para alcançar os mais variados públicos.</span>
+        </p>
       </div>
     </div>
   </div>

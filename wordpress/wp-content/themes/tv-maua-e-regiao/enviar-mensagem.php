@@ -5,7 +5,7 @@
     $quebraLinha = "\n";
   }
 
-  $destino = "dev@marcker.net";
+  $destino = "atendimento@tvmauaeregiao.com.br";
   $nome = $_GET["nome"];
   $assunto = "CONTATO (" . $nome ."): TV Mauá e Região";
   $email = $_GET["email"];

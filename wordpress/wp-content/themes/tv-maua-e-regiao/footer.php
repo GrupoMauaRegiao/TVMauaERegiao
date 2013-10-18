@@ -27,7 +27,7 @@
     </div>
     <?php wp_footer(); ?>
     <script src='http://code.jquery.com/jquery-2.0.3.min.js'></script>
-    <script src='<?php bloginfo("template_url"); ?>/js/scripts.js'></script>
+    <script src='<?php bloginfo("template_url"); ?>/js/scripts.min.js'></script>
     <script>
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-44518641-1']);

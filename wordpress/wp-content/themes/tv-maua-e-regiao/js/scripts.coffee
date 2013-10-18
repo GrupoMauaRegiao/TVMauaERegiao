@@ -67,12 +67,12 @@ TVMaua.apps =
           playlist: clips
 
           onStart: (clip) ->
+            carousel.trigger 'slideTo', clip.index
             Apps.scrollTop()
             urlPerfil = perfis[clip.index]
             _alterarPublicidadeLateral publicidades[clip.index], linksPublicidades[clip.index]
             _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[clip.index], catAnuncte
-            carousel.trigger 'slideTo', clip.index
             return
 
           onFinish: ->
@@ -114,11 +114,11 @@ TVMaua.apps =
           wmode: 'transparent'
         }, {
           onStart: ->
+            carousel.trigger 'slideTo', index - 1
             Apps.scrollTop()
             _alterarPublicidadeLateral publicidades[index - 1], linksPublicidades[index - 1]
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
             _exibirDadosAnuncte 'categoria', cats[index - 1], catAnuncte
-            carousel.trigger 'slideTo', index - 1
             return
 
           onFinish: ->

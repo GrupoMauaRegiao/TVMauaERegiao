@@ -23,7 +23,7 @@ function definirTitulo() {
   } elseif (is_page()) {
     $tituloWebsite = $tituloPadrao . " | " . $titulo;
   } elseif (is_category()) {
-    if (in_category('15')) {
+    if (in_category('3')) {
       $tituloWebsite = $tituloPadrao . " | Perfil: " . $titulo;
     } else {
       $tituloWebsite = $tituloPadrao . " | " . $categoria;
@@ -39,8 +39,8 @@ function definirTitulo() {
 
 function categoriasSemTitle() {
   # 3 => Empresas
-  # 12 => Programas
-  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=6,4,3');
+  # 4 => Programas
+  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=4,3');
   $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
   $categories = str_replace("(", "<i>", $categories);
   $categories = str_replace(")", "</i>  ", $categories);

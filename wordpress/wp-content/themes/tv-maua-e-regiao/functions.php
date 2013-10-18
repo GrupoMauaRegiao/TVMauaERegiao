@@ -38,7 +38,9 @@ function definirTitulo() {
 }
 
 function categoriasSemTitle() {
-  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=6,12,15');
+  # 3 => Empresas
+  # 12 => Programas
+  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=6,4,3');
   $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
   $categories = str_replace("(", "<i>", $categories);
   $categories = str_replace(")", "</i>  ", $categories);
@@ -49,7 +51,7 @@ function adicionarClasseHome() {
   if (is_home()) {
     $classe = "home";
   } elseif (is_category()) {
-    if (in_category('15')) {
+    if (in_category('3')) {
       $classe = "perfil";
     }
   } else {

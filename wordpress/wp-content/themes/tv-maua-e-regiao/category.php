@@ -63,7 +63,7 @@
     </div>
     <div class='player individual <?php if ($_GET["canal"]) { echo "canal"; } ?>'>
       <div class='video'>
-        <a href='http://marcker.net/tv-wp/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>
+        <a href='http://tvmauaeregiao.com.br/wp-content/uploads/2013/10/videocomercial.wmv.flv' id='flv-player'></a>
       </div>
     </div>
     <div class="informacoes-anunciante">

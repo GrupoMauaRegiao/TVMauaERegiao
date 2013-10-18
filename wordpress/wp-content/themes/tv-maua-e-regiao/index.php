@@ -3,12 +3,12 @@
       <div class='conteudo'>
         <div class='player'>
           <div class='video'>
-            <a href='http://marcker.net/tv-wp/wp-content/uploads/2013/09/play.flv' id='flv-player'></a>
+            <a href='http://tvmauaeregiao.com.br/wp-content/uploads/2013/10/videocomercial.wmv.flv' id='flv-player'></a>
           </div>
         </div>
         <div class='publicidade'>
           <a href='http://grupomauaeregiao.com.br' target='_blank'>
-            <img src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php bloginfo("template_url"); ?>/imagens/sem-publicidade.jpg&amp;w=180&amp;450' alt=''>
+            <img src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php bloginfo("template_url"); ?>/imagens/sem-publicidade.jpg&amp;w=180&amp;h=450' alt=''>
           </a>
         </div>
         <div class="informacoes-anunciante">
@@ -28,7 +28,7 @@
         <div class='clips'>
           <ul>
 
-            <?php query_posts("order=ASC&posts_per_page=20&tag=videos&cat=-12"); ?>
+            <?php query_posts("order=ASC&posts_per_page=20&tag=videos&cat=-4"); ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
               <li>

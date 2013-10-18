@@ -1,7 +1,7 @@
 TVMaua = TVMaua or {}
 TVMaua.apps =
   path: ->
-    'http://marcker.net/tv-wp/wp-content/themes/tv-maua-e-regiao/'
+    'http://tvmauaeregiao.com.br/wp-content/themes/tv-maua-e-regiao/'
 
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
@@ -54,8 +54,9 @@ TVMaua.apps =
         return
 
       _listeners = ->
-        botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
-        containerPlayer.addEventListener 'dragstart', _desativarDragPlayer
+        if botInformacoes
+          botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
+          containerPlayer.addEventListener 'dragstart', _desativarDragPlayer
         return
 
       _playerDefault = ->
@@ -127,7 +128,7 @@ TVMaua.apps =
 
           plugins:
             controls:
-              buttonColor: 'rgba(97, 181, 228, 0.9)'
+              buttonColor: 'rgba(150, 150, 150, 0.9)'
               buttonOverColor: 'rgb(245, 134, 52)'
               backgroundColor: 'rgb(97, 108, 112)'
               backgroundGradient: 'none'

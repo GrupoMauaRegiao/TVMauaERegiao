@@ -69,8 +69,8 @@ TVMaua.apps =
             carousel.trigger 'slideTo', clip.index
             Apps.scrollTop()
             urlPerfil = perfis[clip.index]
-            _alterarPublicidadeLateral publicidades[clip.index], linksPublicidades[clip.index]
             _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
+            _alterarPublicidadeLateral publicidades[clip.index], linksPublicidades[clip.index]
             return
 
           onFinish: ->
@@ -98,6 +98,11 @@ TVMaua.apps =
           tag = 'h1'
         else if tipo is 'categoria'
           tag = 'p'
+
+        # Limita tamanho do título do vídeo
+        if nome.length >= 33
+          nome = nome.slice(0, 33) + '...'
+
         container.innerHTML = '<' + tag + '>' + nome + '</' + tag + '>'
         return
 
@@ -114,8 +119,8 @@ TVMaua.apps =
           onStart: ->
             carousel.trigger 'slideTo', index - 1
             Apps.scrollTop()
-            _alterarPublicidadeLateral publicidades[index - 1], linksPublicidades[index - 1]
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
+            _alterarPublicidadeLateral publicidades[index - 1], linksPublicidades[index - 1]
             return
 
           onFinish: ->
@@ -363,6 +368,7 @@ window.onload = ->
   Apps.controlarTamanhoString '.clips ul li a p', 16
   Apps.controlarTamanhoString '.nome-programa a', 48
   Apps.controlarTamanhoString '.categoria-programa span', 16
+  Apps.controlarTamanhoString '.informacoes-anunciante-nome nome-anunciante', 33
   Apps.enviarEmail()
   Apps.criarMapa()
   Apps.criarEfeitoNoMapa()

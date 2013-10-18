@@ -7,7 +7,7 @@
 
   $destino = "atendimento@tvmauaeregiao.com.br";
   $nome = $_GET["nome"];
-  $assunto = "CONTATO (" . $nome ."): TV Mauá e Região";
+  $assunto = "CONTATO (" . $nome . "): TV Mauá e Região";
   $email = $_GET["email"];
   $mensagem = "<pre>" . $_GET["mensagem"] . "</pre>";
 

@@ -59,7 +59,7 @@
 
   <div class='conteudo'>
     <div class="nome-categoria">
-      <h2><?php echo $category[0]->name; ?></h2>
+      <h2><?php echo $category[0]->cat_name; ?></h2>
     </div>
     <div class='player individual <?php if ($_GET["canal"]) { echo "canal"; } ?>'>
       <div class='video'>

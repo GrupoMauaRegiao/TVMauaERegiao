@@ -27,8 +27,7 @@ TVMaua.apps =
       a = document.querySelectorAll '.clips ul li a'
       linkPublicidadeLateral = document.querySelector '.publicidade a'
       publicidadeLateral = document.querySelector '.publicidade a img'
-      nomeAnuncte = document.querySelector '.informacoes-anunciante .nome-anunciante'
-      catAnuncte = document.querySelector '.informacoes-anunciante .categoria'
+      nomeAnuncte = document.querySelector '.informacoes-anunciante-nome .nome-anunciante'
       botInformacoes = document.querySelector '.botao-mais-informacoes input[type="button"]'
       clips = []
       nomes = []
@@ -72,7 +71,6 @@ TVMaua.apps =
             urlPerfil = perfis[clip.index]
             _alterarPublicidadeLateral publicidades[clip.index], linksPublicidades[clip.index]
             _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
-            _exibirDadosAnuncte 'categoria', cats[clip.index], catAnuncte
             return
 
           onFinish: ->
@@ -118,7 +116,6 @@ TVMaua.apps =
             Apps.scrollTop()
             _alterarPublicidadeLateral publicidades[index - 1], linksPublicidades[index - 1]
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
-            _exibirDadosAnuncte 'categoria', cats[index - 1], catAnuncte
             return
 
           onFinish: ->

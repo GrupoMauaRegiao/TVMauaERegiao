@@ -100,8 +100,8 @@ TVMaua.apps =
           tag = 'p'
 
         # Limita tamanho do título do vídeo
-        if nome.length >= 33
-          nome = nome.slice(0, 33) + '...'
+        if nome.length >= 90
+          nome = nome.slice(0, 90) + '...'
 
         container.innerHTML = '<' + tag + '>' + nome + '</' + tag + '>'
         return

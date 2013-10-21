@@ -75,7 +75,7 @@
                     <span title="<?php echo $categoria[0]->cat_name; ?>"><?php echo $categoria[0]->cat_name; ?></span>
                   </div>
                   <div class="nome-programa">
-                    <a href="<?php bloginfo('url'); ?>/categorias/programas/<?php echo $categoria[0]->slug . add_query_arg('canal', 1, ''); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+                    <a href="<?php bloginfo('url'); ?>/categorias/programas/<?php echo $categoria[0]->slug . add_query_arg('canal', 1, ''); ?>&amp;vid=<?php echo $post->ID; ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                   </div>
                 </div>
               </div>

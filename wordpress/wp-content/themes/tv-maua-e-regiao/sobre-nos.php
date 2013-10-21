@@ -18,6 +18,24 @@
           <span>Oferecemos aos nossos clientes o melhor conteúdo impresso e online, para alcançar os mais variados públicos.</span>
         </p>
       </div>
+
+      <div class="icones-produtos">
+        <a href="http://revistamaua.com.br" target="_blank">
+          <div class="icone revista"></div>
+        </a>
+
+        <a href="http://jornalmauaeregiao.com.br" target="_blank">
+          <div class="icone jornal"></div>
+        </a>
+
+        <a href="http://portalmauaeregiao.com.br" target="_blank">
+          <div class="icone portal"></div>
+        </a>
+
+        <a href="https://www.facebook.com/pages/Web-TV-Mau%C3%A1-e-Regi%C3%A3o/448246115280743?fref=ts" target="_blank">
+          <div class="icone facebook"></div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

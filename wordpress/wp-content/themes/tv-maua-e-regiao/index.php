@@ -40,6 +40,8 @@
                    data-categoria='<?php echo $categoria[0]->cat_name; ?>'
                    data-pub-imagem='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Publicidade IMAGEM (180 X 450)", true); ?>&amp;w=180&amp;h=450&amp;q=100'
                    data-pub-link='<?php echo get_post_meta($post->ID, "Publicidade LINK", true); ?>'
+                   data-data-publicacao='<?php echo "Publicado dia " . get_the_date(); ?>'
+                   data-descricao='<?php echo get_post_meta($post->ID, "Descrição VÍDEO", true); ?>'
                    href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
                    title='<?php the_title(); ?>'>
                   <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=180&amp;q=100'>
@@ -72,7 +74,7 @@
                 <div class="aba-imagem"></div>
                 <div class="informacoes-programa">
                   <div class="categoria-programa">
-                    <span title="<?php echo $categoria[0]->cat_name; ?>"><?php echo $categoria[0]->cat_name; ?></span>
+                    <a href="<?php bloginfo('url'); ?>/categorias/programas/<?php echo $categoria[0]->slug . add_query_arg('canal', 1, ''); ?>" title="<?php echo $categoria[0]->cat_name; ?>"><?php echo $categoria[0]->cat_name; ?></a>
                   </div>
                   <div class="nome-programa">
                     <a href="<?php bloginfo('url'); ?>/categorias/programas/<?php echo $categoria[0]->slug . add_query_arg('canal', 1, ''); ?>&amp;vid=<?php echo $post->ID; ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>

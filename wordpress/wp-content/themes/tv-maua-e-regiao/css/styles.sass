@@ -23,6 +23,14 @@ $preto: rgb(0, 0, 0)
 .perfil
   background: $preto url('../imagens/bg-informacoes-anunciante.jpg') no-repeat 50% 110px
 
+.pagina-canal
+  background: $preto url('../imagens/bg-informacoes-anunciante-upside.jpg') no-repeat 50% 650px
+
+  .layout
+    .conteudo
+      .informacoes-anunciante
+        border: 0
+
 body
   background: $preto
   font-family: Gotham, cursive
@@ -198,6 +206,24 @@ body
                 i
                   opacity: 1
 
+    .cabecalho-canal
+      width: 100%
+      height: 115px
+      margin: 70px 0px 15px 0px
+      float: left
+
+      .nome-categoria-canal
+        width: 960px
+        padding: 55px 0 0 0
+        margin: 0 auto
+
+        h2
+          background: url('../imagens/logotipo-somente-tv.png') no-repeat
+          font-size: 38px
+          text-transform: uppercase
+          color: rgb(255, 252, 1)
+          padding: 1px 0 0 40px
+
     .conteudo
       width: 960px
       min-height: 440px
@@ -214,6 +240,7 @@ body
           text-transform: uppercase
           color: rgb(97, 181, 228)
           padding: 0 0 10px 0
+
 
       .titulo-pagina
         width: 960px
@@ -355,6 +382,16 @@ body
           input:hover
             background: rgb(96, 176, 222)
 
+      .informacoes-video-canal
+        color: rgb(188, 192, 204)
+        font-size: 20px
+        margin: 0 0 50px 0
+
+        .data
+          margin: 0 0 50px 0
+
+        .descricao-video
+          margin: -20px 0 0 50px
 
       .publicidade
         width: 180px
@@ -535,10 +572,19 @@ body
                 text-align: right
                 padding: 0 15px 5px 0
 
-                span
+                a
                   color: $branco
                   text-transform: uppercase
+                  text-decoration: none
                   font-size: 18px
+                  -webkit-transition: all 0.3s linear
+                  -moz-transition: all 0.3s linear
+                  -ms-transition: all 0.3s linear
+                  -o-transition: all 0.3s linear
+                  transition: all 0.3s linear
+
+                a:hover
+                  color: rgb(200, 200, 200)
 
               .nome-programa
                 height: 65px
@@ -561,6 +607,47 @@ body
 
               a:hover
                 color: rgb(210, 210, 210)
+
+    .lista-videos-canal
+      margin: 50px 0 20px 0
+
+      .clips
+        width: 960px !important
+        margin: 0 auto
+
+        ul
+          text-align: left !important
+
+          li
+            border: 0
+            margin: 0 20px 70px 0
+
+            a
+              p
+                border-bottom: 2px solid rgb(130, 130, 130)
+                background: rgb(26, 26, 26)
+                color: rgb(130, 130, 130)
+                -webkit-transition: all 0.3s linear
+                -moz-transition: all 0.3s linear
+                -ms-transition: all 0.3s linear
+                -o-transition: all 0.3s linear
+                transition: all 0.3s linear
+
+          li:nth-child(4n)
+            margin-right: 0
+
+          li:hover
+            border: 0
+
+            a
+              p
+                color: $branco
+
+
+
+      .clips
+        .caroufredsel_wrapper
+          height: auto !important
 
     .icone-lupa
       width: 25px

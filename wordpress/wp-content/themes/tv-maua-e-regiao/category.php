@@ -50,17 +50,29 @@
 
   if ($query) {
     $query = $baseQuery . "&p=" . $query;
-    $classe = "esconder";
+    if (($_GET["canal"]) && ($_GET["vid"])) {
+      $classe = "esconder";
+    }
   } else {
     $query = $baseQuery;
     $classe = "exibir";
   }
   ?>
 
-  <div class='conteudo'>
-    <div class="nome-categoria">
-      <h2><?php echo $category[0]->cat_name; ?></h2>
+  <?php if ($_GET["canal"]) { ?>
+    <div class="cabecalho-canal">
+      <div class="nome-categoria-canal">
+        <h2><?php echo $category[0]->cat_name; ?></h2>
+      </div>
     </div>
+  <?php } ?>
+
+  <div class='conteudo'>
+    <?php if (!$_GET["canal"]) { ?>
+      <div class="nome-categoria">
+        <h2><?php echo $category[0]->cat_name; ?></h2>
+      </div>
+    <?php } ?>
     <div class='player individual <?php if ($_GET["canal"]) { echo "canal"; } ?>'>
       <div class='video'>
         <a href='http://tvmauaeregiao.com.br/wp-content/uploads/2013/10/videocomercial.wmv.flv' id='flv-player'></a>
@@ -76,17 +88,27 @@
         </div>
       <?php } ?>
     </div>
-    <div class='sombra <?php echo $classe; ?>'></div>
+
+    <?php if ($_GET["canal"]) { ?>
+    <div class="informacoes-video-canal">
+      <div class="data"></div>
+      <div class="descricao-video"></div>
+    </div>
+    <?php } ?>
+    <?php if (!$_GET["canal"]) { ?>
+      <div class='sombra <?php echo $classe; ?>'></div>
+    <?php } ?>
   </div>
-  <div class='lista-de-videos <?php echo $classe; ?>'>
+
+  <div class='lista-de-videos <?php if ($_GET["canal"]) { echo "lista-videos-canal"; } ?> <?php echo $classe; ?>'>
     <div class='clips clips-categoria'>
-      <div class="cabecalho-lista-de-videos">
-        <?php if ($_GET["canal"]) { ?>
-          <h2>Vídeos</h2>
-        <?php } else { ?>
+
+      <?php if (!$_GET["canal"]) { ?>
+        <div class="cabecalho-lista-de-videos">
           <h2>Anunciantes</h2>
-        <?php } ?>
-      </div>
+        </div>
+      <?php } ?>
+
       <ul>
         <?php query_posts($query); ?>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -97,9 +119,16 @@
             ?>
             <a data-perfil='<?php echo bloginfo("url") . "/categorias/empresas/" . $nomeEmpresa . add_query_arg("perfil", $nomeEmpresa, ""); ?>'
                data-categoria='<?php echo $category[0]->cat_name; ?>'
+               data-data-publicacao='<?php echo "Publicado dia " . get_the_date(); ?>'
+               data-descricao='<?php echo get_post_meta($post->ID, "Descrição VÍDEO", true); ?>'
                href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
                title='<?php the_title(); ?>'>
               <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=160'>
+
+              <?php if ($_GET["canal"]): ?>
+                <p><?php the_title(); ?></p>
+              <?php endif ?>
+
             </a>
           </li>
         <?php endwhile; else: ?>

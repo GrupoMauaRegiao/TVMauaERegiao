@@ -25,19 +25,36 @@ TVMaua.apps =
     if containerPlayer
       flashPlayer = TVMaua.apps.path() + 'flv-player/flowplayer-3.2.16.swf'
       a = document.querySelectorAll '.clips ul li a'
-      linkPublicidadeLateral = document.querySelector '.publicidade a'
-      publicidadeLateral = document.querySelector '.publicidade a img'
-      nomeAnuncte = document.querySelector '.informacoes-anunciante-nome .nome-anunciante'
+
       botInformacoes = document.querySelector '.botao-mais-informacoes input[type="button"]'
-      clips = []
+      urlPerfil = ''
+
+      publicidadeLateral = document.querySelector '.publicidade a img'
+      publicidades = []
+
+      linkPublicidadeLateral = document.querySelector '.publicidade a'
+      linksPublicidades = []
+
+      nomeAnuncte = document.querySelector '.informacoes-anunciante-nome .nome-anunciante'
       nomes = []
+
+      dataPublicacaoVideo = document.querySelector '.informacoes-video-canal .data'
+      dataPublicacao = []
+
+      descricaoVideo = document.querySelector '.informacoes-video-canal .descricao-video'
+      descricao = []
+
+      clips = []
       cats = []
       perfis = []
-      linksPublicidades = []
-      publicidades = []
-      urlPerfil = ''
       carousel = jQuery '.clips ul'
       Apps = TVMaua.apps
+
+      _listeners = ->
+        if botInformacoes
+          botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
+          containerPlayer.addEventListener 'dragstart', _desativarDragPlayer
+        return
 
       _desativarDragPlayer = (evt) ->
         evt.preventDefault()
@@ -52,10 +69,21 @@ TVMaua.apps =
         publicidadeLateral.setAttribute 'src', imagem
         return
 
-      _listeners = ->
-        if botInformacoes
-          botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
-          containerPlayer.addEventListener 'dragstart', _desativarDragPlayer
+      _exibirDadosAnuncte = (tipo, nome, container) ->
+        if tipo is 'nome'
+          tag = 'h1'
+        else if tipo is 'categoria'
+          tag = 'p'
+        else if tipo is 'data'
+          tag = 'span'
+        else if tipo is 'descricao'
+          tag = 'span'
+
+        # Limita tamanho do título do vídeo
+        if tipo is 'nome' and nome.length >= 90
+          nome = nome.slice(0, 90) + '...'
+
+        container.innerHTML = '<' + tag + '>' + nome + '</' + tag + '>'
         return
 
       _playerDefault = ->
@@ -69,8 +97,16 @@ TVMaua.apps =
             carousel.trigger 'slideTo', clip.index
             Apps.scrollTop()
             urlPerfil = perfis[clip.index]
+
             _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
-            _alterarPublicidadeLateral publicidades[clip.index], linksPublicidades[clip.index]
+
+            if dataPublicacaoVideo
+              _exibirDadosAnuncte 'data', dataPublicacao[clip.index], dataPublicacaoVideo
+              _exibirDadosAnuncte 'descricao', descricao[clip.index], descricaoVideo
+
+            if publicidades[0]
+              _alterarPublicidadeLateral publicidades[clip.index], linksPublicidades[clip.index]
+
             return
 
           onFinish: ->
@@ -93,19 +129,6 @@ TVMaua.apps =
               durationColor: 'rgb(255, 255, 255)'
         }
 
-      _exibirDadosAnuncte = (tipo, nome, container) ->
-        if tipo is 'nome'
-          tag = 'h1'
-        else if tipo is 'categoria'
-          tag = 'p'
-
-        # Limita tamanho do título do vídeo
-        if nome.length >= 90
-          nome = nome.slice(0, 90) + '...'
-
-        container.innerHTML = '<' + tag + '>' + nome + '</' + tag + '>'
-        return
-
       _mudarVideo = (evt) ->
         len = clips.length
         index = clips.indexOf(@.getAttribute 'href') + 1
@@ -119,8 +142,16 @@ TVMaua.apps =
           onStart: ->
             carousel.trigger 'slideTo', index - 1
             Apps.scrollTop()
+
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
-            _alterarPublicidadeLateral publicidades[index - 1], linksPublicidades[index - 1]
+
+            if dataPublicacaoVideo
+              _exibirDadosAnuncte 'data', dataPublicacao[index - 1], dataPublicacaoVideo
+              _exibirDadosAnuncte 'descricao', descricao[index - 1], descricaoVideo
+
+            if publicidades[0]
+              _alterarPublicidadeLateral publicidades[index - 1], linksPublicidades[index - 1]
+
             return
 
           onFinish: ->
@@ -153,6 +184,8 @@ TVMaua.apps =
         perfis[i] = item.getAttribute 'data-perfil'
         linksPublicidades[i] = item.getAttribute 'data-pub-link'
         publicidades[i] = item.getAttribute 'data-pub-imagem'
+        dataPublicacao[i] = item.getAttribute 'data-data-publicacao'
+        descricao[i] = item.getAttribute 'data-descricao'
 
       # Player inicial
       do ->
@@ -320,7 +353,7 @@ TVMaua.apps =
     while (endereco = re.exec texto)
       enderecos.push endereco[1]
 
-    enderecos;
+    enderecos
 
   removerChavesDoTexto: (texto) ->
     texto = texto.replace /[\{\}']+/g,''
@@ -355,6 +388,24 @@ TVMaua.apps =
     }
     return
 
+  coresAleatorias: ->
+    cabecalhoCanal = document.querySelector '.cabecalho-canal'
+
+    if cabecalhoCanal
+      texto = document.querySelector '.cabecalho-canal .nome-categoria-canal h2'
+      coresBg = [
+        "rgb(255, 102, 0)",
+        "rgb(0, 148, 208)"
+      ]
+      coresTexto = [
+        "rgb(255, 252, 1)",
+        "rgb(0, 70, 145)"
+      ]
+      num = Math.floor Math.random() * coresBg.length
+      cabecalhoCanal.style.backgroundColor = coresBg[num]
+      texto.style.color = coresTexto[num]
+    return
+
 Apps = TVMaua.apps
 do ->
   Apps.carregarScripts()
@@ -368,8 +419,8 @@ window.onload = ->
   Apps.controlarTamanhoString '.clips ul li a p', 16
   Apps.controlarTamanhoString '.nome-programa a', 48
   Apps.controlarTamanhoString '.categoria-programa span', 16
-  Apps.controlarTamanhoString '.informacoes-anunciante-nome nome-anunciante', 33
   Apps.enviarEmail()
   Apps.criarMapa()
   Apps.criarEfeitoNoMapa()
+  Apps.coresAleatorias()
   return

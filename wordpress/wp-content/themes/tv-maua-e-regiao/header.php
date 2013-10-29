@@ -41,7 +41,7 @@
     <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>
     <title><?php echo definirTitulo(); ?></title>
   </head>
-  <body class="<?php echo adicionarClasseHome(); ?>">
+  <body class="<?php if ($_GET["canal"]) { echo "pagina-canal"; } ?><?php echo adicionarClasseHome(); ?>">
     <div class='layout'>
       <div class='cabecalho'>
         <div class='elementos'>

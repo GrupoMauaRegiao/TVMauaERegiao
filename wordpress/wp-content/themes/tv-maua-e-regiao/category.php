@@ -126,7 +126,7 @@
               <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=160'>
 
               <?php if ($_GET["canal"]): ?>
-                <p><?php the_title(); ?></p>
+                <p class="titulo-video-canal"><?php the_title(); ?></p>
               <?php endif ?>
 
             </a>

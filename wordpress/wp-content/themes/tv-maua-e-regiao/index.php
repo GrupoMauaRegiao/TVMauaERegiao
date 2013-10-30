@@ -45,7 +45,7 @@
                    href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
                    title='<?php the_title(); ?>'>
                   <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=180&amp;q=100'>
-                  <p><?php the_title(); ?></p>
+                  <p class="titulo-video-home"><?php the_title(); ?></p>
                 </a>
               </li>
 
@@ -63,7 +63,7 @@
 
           <div class="programas">
 
-            <?php query_posts("order=ASC&posts_per_page=4&category_name=programas"); ?>
+            <?php query_posts("order=DESC&posts_per_page=4&category_name=programas"); ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               <?php $categoria = get_the_category(); ?>
 

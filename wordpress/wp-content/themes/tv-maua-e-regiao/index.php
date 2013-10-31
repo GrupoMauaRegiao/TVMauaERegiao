@@ -68,9 +68,11 @@
               <?php $categoria = get_the_category(); ?>
 
               <div class="programa">
-                <div class="imagem">
-                  <img src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=240&amp;h=250' alt="">
-                </div>
+                <a href="<?php bloginfo('url'); ?>/categorias/programas/<?php echo $categoria[0]->slug . add_query_arg('canal', 1, ''); ?>&amp;vid=<?php echo $post->ID; ?>" title="<?php echo $categoria[0]->cat_name; ?>">
+                  <div class="imagem">
+                    <img src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=240&amp;h=250' alt="">
+                  </div>
+                </a>
                 <div class="aba-imagem"></div>
                 <div class="informacoes-programa">
                   <div class="categoria-programa">

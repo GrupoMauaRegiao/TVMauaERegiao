@@ -8,7 +8,7 @@ if (!$wp_query) {
 
 $args = array(
   "tag" => "videos",
-  "cat" => "-12" // Exclui programas da busca
+  "cat" => "-4,-20,-21,-22" // Exclui programas da busca
 );
 
 $args = array_merge(
@@ -61,7 +61,7 @@ query_posts($args);
                   Por favor, procure com outros termos ou assista as sugestões:</p>
                 </div>
                 <div class="sugestoes">
-                  <?php query_posts("orderby=rand&posts_per_page=5&tag=videos&cat=-12"); ?>
+                  <?php query_posts("orderby=rand&posts_per_page=5&tag=videos&cat=-4,-20,-21,-22"); ?>
                   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <?php $category = get_the_category(); ?>
                       <a href="<?php bloginfo('url'); ?>/categorias/<?php echo $category[0]->slug . add_query_arg('vid', $post->ID, ''); ?>">

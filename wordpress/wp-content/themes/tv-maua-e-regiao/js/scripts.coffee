@@ -1,5 +1,10 @@
 TVMaua = TVMaua or {}
 TVMaua.apps =
+  identificarUserAgent: ->
+    doc = document.documentElement
+    doc.setAttribute 'data-useragent', navigator.userAgent
+    return
+
   path: ->
     'http://tvmauaeregiao.com.br/wp-content/themes/tv-maua-e-regiao/'
 
@@ -412,6 +417,7 @@ do ->
   return
 
 window.onload = ->
+  Apps.identificarUserAgent()
   Apps.flowPlayer()
   Apps.menuCategorias()
   Apps.animacaoCabecalho()

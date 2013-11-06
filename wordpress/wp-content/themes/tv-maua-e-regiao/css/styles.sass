@@ -5,7 +5,6 @@
   font-weight: normal
   src: url('../fonts/gothamrnd-light.otf') format("opentype")
 
-
 $branco: rgb(255, 255, 255)
 $preto: rgb(0, 0, 0)
 
@@ -17,6 +16,30 @@ $preto: rgb(0, 0, 0)
 
 .esconder
   display: none
+
+html[data-useragent*="MSIE"]
+  body
+    font-family: "Lato", cursive !important
+
+  .lista-categorias
+    position: absolute !important
+    margin-top: 30px !important
+
+  .botao-mais-informacoes
+    input
+      font-family: "Lato", cursive !important
+
+  .formulario
+    form
+      input[type="text"]
+        font-family: "Lato", cursive !important
+
+  .formulario-fale-conosco
+    form
+      input[type="text"],
+      input[type="button"],
+      textarea
+        font-family: "Lato", cursive !important
 
 .home
   background: $preto url('../imagens/bg-informacoes-anunciante.jpg') no-repeat 50% 560px
@@ -34,8 +57,7 @@ $preto: rgb(0, 0, 0)
 
 body
   background: $preto
-  font-family: "Lato", Gotham, cursive
-
+  font-family: Gotham, cursive
 
   .layout
     .cabecalho
@@ -77,7 +99,7 @@ body
               input[type="text"]
                 width: 330px
                 height: 20px
-                font-family: "Lato", Gotham, cursive
+                font-family: Gotham, cursive
                 border: 0
                 border-radius: 20px
                 padding: 5px
@@ -367,7 +389,7 @@ body
             width: auto
             height: 30px
             cursor: pointer
-            font: 16px "Lato", "Gotham", cursive
+            font: 16px "Gotham", cursive
             text-transform: uppercase
             color: $branco
             background: rgb(1, 125, 195)
@@ -808,7 +830,7 @@ body
             textarea
               width: 420px
               color: rgb(220, 220, 220)
-              font: 15px "Lato", Gotham, cursive
+              font: 15px Gotham, cursive
               border-radius: 20px
               background: $preto
               margin: 5px 0 15px 0
@@ -834,7 +856,7 @@ body
               color: $branco
               text-transform: uppercase
               background: transparent
-              font: 18px "Lato", Gotham, cursive
+              font: 18px Gotham, cursive
               cursor: pointer
 
             input[type="button"]:hover,

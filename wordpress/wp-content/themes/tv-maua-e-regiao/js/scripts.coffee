@@ -131,7 +131,6 @@ TVMaua.apps =
         # `TVMaua.apps.flowPlayer indexVideo` recebe.
         if indexVideo
           $f().play indexVideo
-          console.log 'Listening...'
 
       _mudarVideo = (evt) ->
         len = clips.length

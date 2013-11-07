@@ -128,7 +128,7 @@ TVMaua.apps =
         }
 
         # Define qual vídeo será iniciado de acordo com o parâmetro que o método
-        # `TVMaua.apps.flowPlayer indexVideo` recebe.
+        # `TVMaua.apps.flowPlayer()` recebe.
         if indexVideo
           $f().play indexVideo
 

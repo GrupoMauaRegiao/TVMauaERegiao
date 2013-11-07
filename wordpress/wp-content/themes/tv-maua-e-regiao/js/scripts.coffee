@@ -95,7 +95,6 @@ TVMaua.apps =
             carousel.trigger 'slideTo', clip.index
             Apps.scrollTop()
             urlPerfil = perfis[clip.index]
-
             _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
 
             if dataPublicacaoVideo
@@ -143,14 +142,8 @@ TVMaua.apps =
           wmode: 'transparent'
         }, {
           onStart: ->
-            if indexVideo
-              indexVideo = indexVideo
-            else
-              indexVideo = index - 1
-
-            carousel.trigger 'slideTo', indexVideo
+            carousel.trigger 'slideTo', index - 1
             Apps.scrollTop()
-
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
 
             if dataPublicacaoVideo

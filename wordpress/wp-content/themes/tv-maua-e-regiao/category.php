@@ -43,20 +43,10 @@
     <?php endif; ?>
   </div>
 <?php } else { ?>
-  <?php
-  // Destaca vídeo por ID recebido pela variável "vid" (via GET)
-  $query = $_GET["vid"];
-  $baseQuery = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug;
 
-  if ($query) {
-    $query = $baseQuery . "&p=" . $query;
-    if (($_GET["canal"]) && ($_GET["vid"])) {
-      $classe = "esconder";
-    }
-  } else {
+  <?php
+    $baseQuery = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug;
     $query = $baseQuery;
-    $classe = "exibir";
-  }
   ?>
 
   <?php if ($_GET["canal"]) { ?>
@@ -96,11 +86,11 @@
     </div>
     <?php } ?>
     <?php if (!$_GET["canal"]) { ?>
-      <div class='sombra <?php echo $classe; ?>'></div>
+      <div class='sombra'></div>
     <?php } ?>
   </div>
 
-  <div class='lista-de-videos <?php if ($_GET["canal"]) { echo "lista-videos-canal"; } ?> <?php echo $classe; ?>'>
+  <div class='lista-de-videos <?php if ($_GET["canal"]) { echo "lista-videos-canal"; } ?>'>
     <div class='clips clips-categoria'>
 
       <?php if (!$_GET["canal"]) { ?>
@@ -110,6 +100,7 @@
       <?php } ?>
 
       <ul>
+        <?php $indexPost = -1; ?>
         <?php query_posts($query); ?>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
           <li>
@@ -121,6 +112,8 @@
                data-categoria='<?php echo $category[0]->cat_name; ?>'
                data-data-publicacao='<?php echo "Publicado dia " . get_the_date(); ?>'
                data-descricao='<?php echo get_post_meta($post->ID, "Descrição VÍDEO", true); ?>'
+               data-index='<?php $indexPost += 1; echo $indexPost; ?>'
+               data-vid='<?php echo $post->ID; ?>'
                href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
                title='<?php the_title(); ?>'>
               <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=160'>

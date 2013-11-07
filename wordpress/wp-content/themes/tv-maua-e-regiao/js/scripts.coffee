@@ -24,31 +24,24 @@ TVMaua.apps =
     _carregar TVMaua.apps.path() + 'js/libs/fancybox/source/jquery.fancybox.js'
     return
 
-  flowPlayer: ->
+  flowPlayer: (indexVideo) ->
     containerPlayer = document.querySelector '#flv-player'
 
     if containerPlayer
       flashPlayer = TVMaua.apps.path() + 'flv-player/flowplayer-3.2.16.swf'
       a = document.querySelectorAll '.clips ul li a'
-
       botInformacoes = document.querySelector '.botao-mais-informacoes input[type="button"]'
       urlPerfil = ''
-
       publicidadeLateral = document.querySelector '.publicidade a img'
       publicidades = []
-
       linkPublicidadeLateral = document.querySelector '.publicidade a'
       linksPublicidades = []
-
       nomeAnuncte = document.querySelector '.informacoes-anunciante-nome .nome-anunciante'
       nomes = []
-
       dataPublicacaoVideo = document.querySelector '.informacoes-video-canal .data'
       dataPublicacao = []
-
       descricaoVideo = document.querySelector '.informacoes-video-canal .descricao-video'
       descricao = []
-
       clips = []
       cats = []
       perfis = []
@@ -134,6 +127,12 @@ TVMaua.apps =
               durationColor: 'rgb(255, 255, 255)'
         }
 
+        # Define qual vídeo será iniciado de acordo com o parâmetro que o método
+        # `TVMaua.apps.flowPlayer indexVideo` recebe.
+        if indexVideo
+          $f().play indexVideo
+          console.log 'Listening...'
+
       _mudarVideo = (evt) ->
         len = clips.length
         index = clips.indexOf(@.getAttribute 'href') + 1
@@ -145,7 +144,12 @@ TVMaua.apps =
           wmode: 'transparent'
         }, {
           onStart: ->
-            carousel.trigger 'slideTo', index - 1
+            if indexVideo
+              indexVideo = indexVideo
+            else
+              indexVideo = index - 1
+
+            carousel.trigger 'slideTo', indexVideo
             Apps.scrollTop()
 
             _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
@@ -322,7 +326,6 @@ TVMaua.apps =
               msg += 'nome=' + encodeURI(cNome.value)
               msg += '&email=' + encodeURI(cEmail.value)
               msg += '&mensagem=' + encodeURI(cMsg.value)
-              console.log formulario.action
               xhr.open formulario.method, formulario.action + '?' + msg, true
               xhr.send msg
               xhr.onreadystatechange = ->

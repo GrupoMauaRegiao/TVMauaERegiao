@@ -28,7 +28,7 @@
         <div class='clips'>
           <ul>
 
-            <?php query_posts("order=ASC&posts_per_page=20&tag=videos&cat=-4"); ?>
+            <?php query_posts("orderby=rand&posts_per_page=20&tag=videos&cat=-4"); ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
               <li>

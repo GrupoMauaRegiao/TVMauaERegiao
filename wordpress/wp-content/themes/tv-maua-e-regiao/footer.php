@@ -30,7 +30,7 @@
     <script src='<?php bloginfo("template_url"); ?>/js/scripts.min.js'></script>
     <?php if ((($_GET['canal']) && ($_GET['vid'])) || ($_GET['vid'])) { ?>
     <script>
-      <?php // Executa vídeo escolhido pelo usuário. ?>
+      <?php // Executa vídeo escolhido pelo usuário ?>
       function executarVideoForaOrdem(){var d,b,c,a,e;
       d=document.querySelectorAll(".clips ul li a");
       b="<?php echo $_GET['vid']; ?>";for(c=0,a=d.length;

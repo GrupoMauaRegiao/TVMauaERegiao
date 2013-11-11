@@ -97,6 +97,10 @@
         <div class="cabecalho-lista-de-videos">
           <h2>Anunciantes</h2>
         </div>
+      <?php } elseif ($_GET["canal"]) { ?>
+        <div class="cabecalho-lista-de-videos">
+          <h2>Vídeos do canal</h2>
+        </div>
       <?php } ?>
 
       <ul>

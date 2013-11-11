@@ -1,4 +1,10 @@
 <?php
+function mostrarURL() {
+  $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  $url = str_replace('&', '&amp;', $url);
+  return $url;
+}
+
 function definirTitulo() {
   $arrCategoria = get_the_category();
   $nome = get_bloginfo('name');

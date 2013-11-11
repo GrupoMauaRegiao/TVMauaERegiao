@@ -7,7 +7,8 @@
     <meta content='Grupo Mauá e Região de Comunicaçãotva' name='author'>
 
     <!-- Open Graph Protocol -->
-    <meta property="og:url" content="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
+    <?php $url = mostrarURL(); ?>
+    <meta property="og:url" content="<?php echo $url; ?>" />
 
     <?php if (is_home()) { ?>
 

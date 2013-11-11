@@ -41,9 +41,24 @@ function categoriasSemTitle() {
   # 3 => Empresas
   # 4 => Programas
   $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&exclude=4,3');
+  // Remove atributo title
   $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
+  // Adiciona tag i para o número de posts
   $categories = str_replace("(", "<i>", $categories);
-  $categories = str_replace(")", "</i>  ", $categories);
+  $categories = str_replace(")", "</i>", $categories);
+  return $categories;
+}
+
+function categoriasProgramas() {
+  # 4 => Programas
+  $categories = wp_list_categories('show_count=1&echo=0&orderby=name&title_li&child_of=4');
+  // Remove atributo title
+  $categories = preg_replace('/title=\"(.*?)\"/', '', $categories);
+  // Adiciona tag i para o número de posts
+  $categories = str_replace("(", "<i>", $categories);
+  $categories = str_replace(")", "</i>", $categories);
+  // Adiciona parâmetro `?canal=1` a URL
+  $categories = preg_replace('/(\<a [^>]*href=")([^"]*)"/i', '${1}${2}?canal=1"', $categories);
   return $categories;
 }
 

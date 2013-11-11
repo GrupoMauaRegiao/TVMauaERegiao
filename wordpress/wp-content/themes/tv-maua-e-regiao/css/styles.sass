@@ -189,7 +189,6 @@ body
                 transition: all 0.3s linear
                 border-bottom: 1px dotted rgb(97, 108, 112)
 
-
                 a
                   outline: 0
                   cursor: pointer
@@ -563,6 +562,114 @@ body
             color: rgb(97, 181, 228)
             text-transform: uppercase
             font-size: 30px
+
+        // Menu de Categorias dos Programas
+        .menu-categorias-programas
+          width: 100%
+          float: left
+          margin: 0 0 30px 0
+
+          .cabecalho-categorias-programas
+            color: $branco
+            cursor: pointer
+
+            .titulo-categorias-programas
+              float: left
+
+              p
+                -webkit-transition: all 0.3s linear
+                -moz-transition: all 0.3s linear
+                -ms-transition: all 0.3s linear
+                -o-transition: all 0.3s linear
+                transition: all 0.3s linear
+                text-transform: uppercase
+                cursor: pointer
+
+            .titulo-categorias-programas:hover
+              p
+                color: rgb(127, 137, 139)
+
+            .seta
+              padding: 2px 10px
+              float: left
+
+              p
+                font-size: 10px
+
+          .aba
+            width: 0
+            height: 0
+            border: 15px solid
+            border-color: transparent transparent rgb(127, 137, 139) transparent
+            margin: -37px 0 -8px 60px
+            padding: 7px 0 0 0
+
+          .lista-categorias-programas
+            width: 155px
+            float: left
+            position: absolute
+            z-index: 9999
+            margin: 27px 0 0 -15px
+            background: rgb(127, 137, 139)
+            border-left: 2px solid rgb(248, 180, 131)
+            -webkit-transition: all 0.5s linear
+            -moz-transition: all 0.5s linear
+            -ms-transition: all 0.5s linear
+            -o-transition: all 0.5s linear
+            transition: all 0.5s linear
+            box-shadow: 0 3px 5px $preto
+            display: none
+
+            ul
+              padding: 8px 0 0 0
+
+              li
+                padding: 15px 5px 9px 5px
+                -webkit-transition: all 0.3s linear
+                -moz-transition: all 0.3s linear
+                -ms-transition: all 0.3s linear
+                -o-transition: all 0.3s linear
+                transition: all 0.3s linear
+                border-bottom: 1px dotted rgb(97, 108, 112)
+
+                a
+                  outline: 0
+                  cursor: pointer
+                  text-transform: uppercase
+                  font-size: 14px
+                  color: $branco
+                  text-decoration: none
+                  -webkit-transition: all 0.1s linear
+                  -moz-transition: all 0.1s linear
+                  -ms-transition: all 0.1s linear
+                  -o-transition: all 0.1s linear
+                  transition: all 0.1s linear
+
+                a:hover
+                  color: rgb(248, 180, 131)
+
+                a:active
+                  color: rgb(164, 209, 228)
+
+                i
+                  color: $branco
+                  opacity: 0.2
+                  background: rgb(245, 134, 52)
+                  padding: 2px 5px 0 4px
+                  border-radius: 5px
+                  font-size: 12px
+                  -webkit-transition: all 0.3s linear
+                  -moz-transition: all 0.3s linear
+                  -ms-transition: all 0.3s linear
+                  -o-transition: all 0.3s linear
+                  transition: all 0.3s linear
+
+              li:hover
+                cursor: pointer
+                background: rgb(118, 125, 126)
+
+                i
+                  opacity: 1
 
         .programas
           width: 960px

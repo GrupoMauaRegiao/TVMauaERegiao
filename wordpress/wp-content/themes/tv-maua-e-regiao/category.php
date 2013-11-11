@@ -45,7 +45,7 @@
 <?php } else { ?>
 
   <?php
-    $baseQuery = "order=ASC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug;
+    $baseQuery = "order=DESC&posts_per_page=20&tag=videos&category_name=" . $category[0]->slug;
     $query = $baseQuery;
   ?>
 

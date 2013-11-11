@@ -226,6 +226,37 @@ TVMaua.apps =
         return
     return
 
+  menuCategoriasProgramas: ->
+    menuCategoriasProgramas = document.querySelector '.menu-categorias-programas'
+
+    if menuCategoriasProgramas
+      categoria = document.querySelector '.cabecalho-categorias-programas'
+      textoCategoria = document.querySelector '.cabecalho-categorias-programas .titulo-categorias-programas p'
+      listaCategorias = document.querySelector '.lista-categorias-programas'
+
+      _listeners = ->
+        categoria.addEventListener 'mouseover', _exibir
+        listaCategorias.addEventListener 'mouseover', _exibir
+        menuCategoriasProgramas.addEventListener 'mouseout', _esconder
+        return
+
+      _exibir = (evt) ->
+        listaCategorias.style.display = 'block'
+        textoCategoria.style.color = 'rgb(127, 137, 139)'
+        evt.preventDefault()
+        return
+
+      _esconder = (evt) ->
+        listaCategorias.style.display = 'none'
+        textoCategoria.style.color = 'rgb(255, 255, 255)'
+        evt.preventDefault()
+        return
+
+      do ->
+        _listeners()
+        return
+    return
+
   controlarTamanhoString: (seletor, maxCaract) ->
     tag = document.querySelectorAll seletor
 
@@ -415,6 +446,7 @@ window.onload = ->
   Apps.identificarUserAgent()
   Apps.flowPlayer()
   Apps.menuCategorias()
+  Apps.menuCategoriasProgramas()
   Apps.animacaoCabecalho()
   Apps.carousel()
   Apps.controlarTamanhoString '.titulo-video-home', 16

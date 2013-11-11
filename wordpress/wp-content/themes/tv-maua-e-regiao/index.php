@@ -61,6 +61,23 @@
             <h2>Programas</h2>
           </div>
 
+          <div class="menu-categorias-programas">
+            <div class='cabecalho-categorias-programas'>
+              <div class='titulo-categorias-programas'>
+                <p>Categorias</p>
+              </div>
+              <div class='seta'>
+                <p>&#9660;</p>
+              </div>
+            </div>
+            <div class='lista-categorias-programas'>
+              <div class='aba'></div>
+              <ul>
+                <?php echo categoriasProgramas(); ?>
+              </ul>
+            </div>
+          </div>
+
           <div class="programas">
 
             <?php query_posts("order=DESC&posts_per_page=4&category_name=programas"); ?>

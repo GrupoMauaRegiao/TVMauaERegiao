@@ -450,7 +450,7 @@ window.onload = ->
   Apps.animacaoCabecalho()
   Apps.carousel()
   Apps.controlarTamanhoString '.titulo-video-home', 16
-  Apps.controlarTamanhoString '.titulo-video-canal', 32
+  Apps.controlarTamanhoString '.titulo-video-canal', 48
   Apps.controlarTamanhoString '.nome-programa a', 48
   Apps.controlarTamanhoString '.categoria-programa span', 16
   Apps.enviarEmail()

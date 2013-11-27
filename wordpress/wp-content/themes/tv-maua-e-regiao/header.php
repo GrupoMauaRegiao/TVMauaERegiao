@@ -4,7 +4,7 @@
     <meta charset='UTF-8'>
     <meta content='tv maua, maua, sp, maua e regiao, grupo maua e regiao, empresas de mauá, ribeirão pires, revista maua, jornal maua, comprar em maua, comprar em rio grande da serra, comprar em ribeirão pires' name='keywords'>
     <meta content='Esta é a Web TV Mauá e Região. Fique à vontade para assistir os vídeos de nossos patrocinadores e compartilhe os nossos programas também.' name='description'>
-    <meta content='Grupo Mauá e Região de Comunicaçãotva' name='author'>
+    <meta content='Grupo Mauá e Região de Comunicação' name='author'>
 
     <!-- Open Graph Protocol -->
     <?php $url = mostrarURL(); ?>

@@ -289,7 +289,7 @@ TVMaua.apps =
           next: { button: '.controles .proximo' }
         })
         return
-      
+
       _eventosTeclado = ->
         carousel = jQuery '.clips ul'
 
@@ -440,9 +440,6 @@ TVMaua.apps =
 Apps = TVMaua.apps
 do ->
   Apps.carregarScripts()
-  return
-
-window.onload = ->
   Apps.identificarUserAgent()
   Apps.flowPlayer()
   Apps.menuCategorias()

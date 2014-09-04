@@ -438,20 +438,22 @@ TVMaua.apps =
     return
 
 Apps = TVMaua.apps
+
 do ->
   Apps.carregarScripts()
   Apps.identificarUserAgent()
-  Apps.flowPlayer()
   Apps.menuCategorias()
   Apps.menuCategoriasProgramas()
   Apps.animacaoCabecalho()
-  Apps.carousel()
   Apps.controlarTamanhoString '.titulo-video-home', 16
   Apps.controlarTamanhoString '.titulo-video-canal', 48
   Apps.controlarTamanhoString '.nome-programa a', 48
   Apps.controlarTamanhoString '.categoria-programa span', 16
   Apps.enviarEmail()
   Apps.criarMapa()
-  Apps.criarEfeitoNoMapa()
   Apps.coresAleatorias()
-  return
+
+window.onload = ->
+  Apps.flowPlayer()
+  Apps.carousel()
+  Apps.criarEfeitoNoMapa()

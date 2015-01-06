@@ -452,8 +452,10 @@ do ->
   Apps.enviarEmail()
   Apps.criarMapa()
   Apps.coresAleatorias()
+  return
 
 window.onload = ->
   Apps.flowPlayer()
   Apps.carousel()
   Apps.criarEfeitoNoMapa()
+  return

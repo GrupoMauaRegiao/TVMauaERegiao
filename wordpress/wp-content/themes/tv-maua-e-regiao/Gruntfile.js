@@ -64,7 +64,7 @@ module.exports = function(grunt) {
         files: ['js/scripts.coffee'],
         tasks: ['coffee']
       },
-      
+
       jshintMin: {
         files: ['js/scripts.js'],
         tasks: ['jshint', 'min']
@@ -83,5 +83,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-yui-compressor');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.registerTask('all', ['watch']);
+  grunt.registerTask('default', ['watch']);
 };

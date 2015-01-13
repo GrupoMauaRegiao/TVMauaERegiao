@@ -15,6 +15,10 @@
           <div class='informacoes-anunciante-nome'>
             <div class='nome-anunciante'></div>
           </div>
+          <div style="display: none;" class="botao-mais-informacoes">
+              <input type="button" value="Compartilhe">
+              <input type="text" >
+          </div>
           <div class='botao-mais-informacoes'>
             <input type='button' value='Informações'>
           </div>
@@ -42,6 +46,7 @@
                    data-pub-link='<?php echo get_post_meta($post->ID, "Publicidade LINK", true); ?>'
                    data-data-publicacao='<?php echo "Publicado dia " . get_the_date(); ?>'
                    data-descricao='<?php echo get_post_meta($post->ID, "Descrição VÍDEO", true); ?>'
+                   data-permalink='<?php bloginfo("url"); ?>/categorias/<?php echo $categoria[0]->slug; ?>/?vid=<?php echo $post->ID; ?>'
                    href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
                    title='<?php the_title(); ?>'>
                   <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=180&amp;q=100'>

@@ -39,6 +39,7 @@
 
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/imagens/favicon.ico" />
     <link href='<?php bloginfo("template_url"); ?>/js/libs/fancybox/source/jquery.fancybox.css' rel='stylesheet'>
+    <link rel="stylesheet" href="<?php bloginfo("template_url"); ?>/bower_components/sweetalert/lib/sweet-alert.css">
     <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet'>
     <link href='<?php bloginfo("template_url"); ?>/css/styles.min.css' rel='stylesheet'>
     <title><?php echo definirTitulo(); ?></title>

@@ -15,9 +15,8 @@
           <div class='informacoes-anunciante-nome'>
             <div class='nome-anunciante'></div>
           </div>
-          <div style="display: none;" class="botao-mais-informacoes">
+          <div class="botao-compartilhe">
               <input type="button" value="Compartilhe">
-              <input type="text" >
           </div>
           <div class='botao-mais-informacoes'>
             <input type='button' value='Informações'>

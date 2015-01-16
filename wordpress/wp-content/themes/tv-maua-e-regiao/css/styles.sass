@@ -17,6 +17,17 @@ $preto: rgb(0, 0, 0)
 .esconder
   display: none
 
+// Customizações do plugin SweetAlert
+.sweet-alert
+  input
+    margin: 0 auto
+    width: 435px
+    height: 30px
+    padding: 5px
+    border-radius: 5px
+    font: 14px sans-serif
+    border: 2px solid rgb(1, 125, 195)
+
 html[data-useragent*="MSIE"]
   body
     font-family: "Lato", cursive !important
@@ -25,7 +36,8 @@ html[data-useragent*="MSIE"]
     position: absolute !important
     margin-top: 30px !important
 
-  .botao-mais-informacoes
+  .botao-mais-informacoes,
+  .botao-compartilhe
     input
       font-family: "Lato", cursive !important
 
@@ -368,18 +380,19 @@ body
         float: left
 
         .informacoes-anunciante-nome
-          width: 740px
+          width: 620px
           margin: 29px 0 10px 0
           color: rgb(188, 192, 204)
           float: left
 
           .nome-anunciante
             h1
-              font-size: 40px
+              font-size: 35px
 
-        .botao-mais-informacoes
+        .botao-mais-informacoes,
+        .botao-compartilhe
           width: auto
-          margin: 35px 0 0 56px
+          margin: 31px 0 0 15px
           float: left
 
           input
@@ -401,6 +414,14 @@ body
 
           input:hover
             background: rgb(96, 176, 222)
+
+        .botao-compartilhe
+          input
+            background: rgb(245, 134, 52)
+
+          input:hover
+            background: lighten(rgb(245, 134, 52), 10%)
+
 
       .informacoes-video-canal
         color: rgb(188, 192, 204)

@@ -31,7 +31,12 @@ TVMaua.apps =
       flashPlayer = TVMaua.apps.path() + 'flv-player/flowplayer-3.2.16.swf'
       a = document.querySelectorAll '.clips ul li a'
       botInformacoes = document.querySelector '.botao-mais-informacoes input[type="button"]'
+      botCompartilhe = document.querySelector '.botao-compartilhe input[type="button"]'
       urlPerfil = ''
+      urlPermalink = ''
+      nomeAnunciante = ''
+      inputModal = $ '.sweet-alert input'
+      textModal = $ '.sweet-alert h2'
       publicidadeLateral = document.querySelector '.publicidade a img'
       publicidades = []
       linkPublicidadeLateral = document.querySelector '.publicidade a'
@@ -45,12 +50,14 @@ TVMaua.apps =
       clips = []
       cats = []
       perfis = []
+      permalinks = []
       carousel = jQuery '.clips ul'
       Apps = TVMaua.apps
 
       _listeners = ->
-        if botInformacoes
+        if botInformacoes and botCompartilhe
           botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
+          botCompartilhe.addEventListener 'click', _abrirModal
           containerPlayer.addEventListener 'dragstart', _desativarDragPlayer
         return
 
@@ -61,6 +68,18 @@ TVMaua.apps =
       _alterarLocationParaPerfil = ->
         window.location = urlPerfil
         return
+
+      _abrirModal = ->
+        swal {
+          type: 'info'
+          title: 'Copie e cole o link: ' + nomeAnunciante
+          text: urlPermalink
+        }
+
+        inputModal.on 'click', ->
+          $(this).select()
+
+        textModal.html(textModal.text().replace ':', ':<br>')
 
       _alterarPublicidadeLateral = (imagem, link) ->
         linkPublicidadeLateral.setAttribute 'href', link
@@ -95,7 +114,10 @@ TVMaua.apps =
             carousel.trigger 'slideTo', clip.index
             Apps.scrollTop()
             urlPerfil = perfis[clip.index]
-            _exibirDadosAnuncte 'nome', nomes[clip.index], nomeAnuncte
+            urlPermalink = permalinks[clip.index]
+            nomeAnunciante = nomes[clip.index]
+
+            _exibirDadosAnuncte 'nome', nomeAnunciante, nomeAnuncte
 
             if dataPublicacaoVideo
               _exibirDadosAnuncte 'data', dataPublicacao[clip.index], dataPublicacaoVideo
@@ -135,6 +157,7 @@ TVMaua.apps =
         len = clips.length
         index = clips.indexOf(@.getAttribute 'href') + 1
         urlPerfil = perfis[index - 1]
+        urlPermalink = permalinks[index - 1]
 
         # Player utilizado após clique
         $f(containerPlayer, {
@@ -144,7 +167,9 @@ TVMaua.apps =
           onStart: ->
             carousel.trigger 'slideTo', index - 1
             Apps.scrollTop()
-            _exibirDadosAnuncte 'nome', nomes[index - 1], nomeAnuncte
+            nomeAnunciante = nomes[index - 1]
+
+            _exibirDadosAnuncte 'nome', nomeAnunciante, nomeAnuncte
 
             if dataPublicacaoVideo
               _exibirDadosAnuncte 'data', dataPublicacao[index - 1], dataPublicacaoVideo
@@ -187,6 +212,7 @@ TVMaua.apps =
         publicidades[i] = item.getAttribute 'data-pub-imagem'
         dataPublicacao[i] = item.getAttribute 'data-data-publicacao'
         descricao[i] = item.getAttribute 'data-descricao'
+        permalinks[i] = item.getAttribute 'data-permalink'
 
       # Player inicial
       do ->

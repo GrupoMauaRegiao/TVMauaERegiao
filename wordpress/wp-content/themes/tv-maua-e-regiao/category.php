@@ -73,6 +73,9 @@
         <div class='nome-anunciante'></div>
       </div>
       <?php if (!$_GET["canal"]) { ?>
+        <div class="botao-compartilhe">
+          <input type="button" value="Compartilhe">
+        </div>
         <div class='botao-mais-informacoes'>
           <input type='button' value='Informações'>
         </div>
@@ -116,6 +119,7 @@
                data-categoria='<?php echo $category[0]->cat_name; ?>'
                data-data-publicacao='<?php echo "Publicado dia " . get_the_date(); ?>'
                data-descricao='<?php echo get_post_meta($post->ID, "Descrição VÍDEO", true); ?>'
+               data-permalink='<?php bloginfo("url"); ?>/categorias/<?php echo $category[0]->slug; ?>/?vid=<?php echo $post->ID; ?>'
                data-index='<?php $indexPost += 1; echo $indexPost; ?>'
                data-vid='<?php echo $post->ID; ?>'
                href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'

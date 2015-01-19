@@ -69,15 +69,19 @@
       </div>
     </div>
     <div class="informacoes-anunciante">
-      <div class='informacoes-anunciante-nome'>
-        <div class='nome-anunciante'></div>
-      </div>
-      <?php if (!$_GET["canal"]) { ?>
-        <div class="botao-compartilhe">
+      <?php if ($_GET["canal"]) { ?>
+        <div class="botao-compartilhe botao-compartilhe-canal">
           <input type="button" value="Compartilhe">
         </div>
+      <?php } elseif (!$_GET["canal"]) { ?>
+        <div class='informacoes-anunciante-nome'>
+          <div class='nome-anunciante'></div>
+        </div>
         <div class='botao-mais-informacoes'>
-          <input type='button' value='Informações'>
+            <input type='button' value='Informações'>
+        </div>
+        <div class="botao-compartilhe botao-compartilhe-canal">
+          <input type="button" value="Compartilhe">
         </div>
       <?php } ?>
     </div>
@@ -87,8 +91,7 @@
       <div class="data"></div>
       <div class="descricao-video"></div>
     </div>
-    <?php } ?>
-    <?php if (!$_GET["canal"]) { ?>
+    <?php } elseif (!$_GET["canal"]) { ?>
       <div class='sombra'></div>
     <?php } ?>
   </div>
@@ -119,7 +122,7 @@
                data-categoria='<?php echo $category[0]->cat_name; ?>'
                data-data-publicacao='<?php echo "Publicado dia " . get_the_date(); ?>'
                data-descricao='<?php echo get_post_meta($post->ID, "Descrição VÍDEO", true); ?>'
-               data-permalink='<?php bloginfo("url"); ?>/categorias/<?php echo $category[0]->slug; ?>/?vid=<?php echo $post->ID; ?>'
+               data-permalink='<?php bloginfo("url"); ?>/categorias/<?php echo $category[0]->slug; ?>/?vid=<?php echo $post->ID; ?><?php echo $_GET["canal"] ? "&canal=1" : ""; ?>'
                data-index='<?php $indexPost += 1; echo $indexPost; ?>'
                data-vid='<?php echo $post->ID; ?>'
                href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'

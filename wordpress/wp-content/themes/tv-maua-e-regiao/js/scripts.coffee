@@ -58,8 +58,9 @@ TVMaua.apps =
         if botInformacoes and botCompartilhe
           botInformacoes.addEventListener 'click', _alterarLocationParaPerfil
           botCompartilhe.addEventListener 'click', _abrirModal
-          containerPlayer.addEventListener 'dragstart', _desativarDragPlayer
-        return
+        else if botCompartilhe
+          botCompartilhe.addEventListener 'click', _abrirModal
+        containerPlayer.addEventListener 'dragstart', _desativarDragPlayer
 
       _desativarDragPlayer = (evt) ->
         evt.preventDefault()
@@ -80,6 +81,7 @@ TVMaua.apps =
           $(this).select()
 
         textModal.html(textModal.text().replace ':', ':<br>')
+        inputModal.val(inputModal.val().replace '&amp;', '&')
 
       _alterarPublicidadeLateral = (imagem, link) ->
         linkPublicidadeLateral.setAttribute 'href', link

@@ -77,11 +77,11 @@
         <div class='informacoes-anunciante-nome'>
           <div class='nome-anunciante'></div>
         </div>
+        <div class="botao-compartilhe">
+            <input type="button" value="Compartilhe">
+        </div>
         <div class='botao-mais-informacoes'>
             <input type='button' value='Informações'>
-        </div>
-        <div class="botao-compartilhe botao-compartilhe-canal">
-          <input type="button" value="Compartilhe">
         </div>
       <?php } ?>
     </div>

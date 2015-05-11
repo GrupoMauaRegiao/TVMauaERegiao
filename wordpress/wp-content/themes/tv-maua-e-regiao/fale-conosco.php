@@ -31,9 +31,8 @@
         </div>
 
         <div class="endereco">
-          <p>Rua Clodoaldo Portugal<br> 
-             Caribé, 276 - Vila Assis<br>
-             Mauá - SP. CEP: 09370-620
+          <p>Rua Vitório Veneto, 355<br>
+             Vila Vitória - Mauá - SP.
           </p>
         </div>
 

@@ -8,7 +8,7 @@
         </div>
         <div class='publicidade'>
           <a href='http://grupomauaeregiao.com.br' target='_blank'>
-            <img src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php bloginfo("template_url"); ?>/imagens/sem-publicidade.jpg&amp;w=180&amp;h=450' alt=''>
+            <img src='<?php bloginfo("template_url"); ?>/imagens/sem-publicidade.jpg' alt=''>
           </a>
         </div>
         <div class="informacoes-anunciante">
@@ -41,14 +41,14 @@
                 ?>
                 <a data-perfil='<?php echo bloginfo("url") . "/categorias/empresas/" . $nomeEmpresa . add_query_arg("perfil", $nomeEmpresa, ""); ?>'
                    data-categoria='<?php echo $categoria[0]->cat_name; ?>'
-                   data-pub-imagem='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Publicidade IMAGEM (180 X 450)", true); ?>&amp;w=180&amp;h=450&amp;q=100'
+                   data-pub-imagem='<?php echo get_post_meta($post->ID, "Publicidade IMAGEM (180 X 450)", true); ?>'
                    data-pub-link='<?php echo get_post_meta($post->ID, "Publicidade LINK", true); ?>'
                    data-data-publicacao='<?php echo "Publicado dia " . get_the_date(); ?>'
                    data-descricao='<?php echo get_post_meta($post->ID, "Descrição VÍDEO", true); ?>'
                    data-permalink='<?php bloginfo("url"); ?>/categorias/<?php echo $categoria[0]->slug; ?>/?vid=<?php echo $post->ID; ?>'
                    href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
                    title='<?php the_title(); ?>'>
-                  <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=180&amp;q=100'>
+                  <img alt='' src='<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>'>
                   <p class="titulo-video-home"><?php the_title(); ?></p>
                 </a>
               </li>
@@ -91,7 +91,7 @@
               <div class="programa">
                 <a href="<?php bloginfo('url'); ?>/categorias/programas/<?php echo $categoria[0]->slug . add_query_arg('canal', 1, ''); ?>&amp;vid=<?php echo $post->ID; ?>" title="<?php echo $categoria[0]->cat_name; ?>">
                   <div class="imagem">
-                    <img src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=240&amp;h=250' alt="">
+                    <img src='<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>' alt="">
                   </div>
                 </a>
                 <div class="aba-imagem"></div>

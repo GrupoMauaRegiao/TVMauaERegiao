@@ -127,7 +127,7 @@
                data-vid='<?php echo $post->ID; ?>'
                href='<?php echo get_post_meta($post->ID, "VÍDEO", true); ?>'
                title='<?php the_title(); ?>'>
-              <img alt='' src='<?php bloginfo("template_url"); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>&amp;w=220&amp;h=160'>
+              <img alt='' src='<?php echo get_post_meta($post->ID, "Miniatura VÍDEO", true); ?>'>
 
               <?php if ($_GET["canal"]): ?>
                 <p class="titulo-video-canal"><?php the_title(); ?></p>
